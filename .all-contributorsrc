@@ -1607,6 +1607,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "rodrigoaguilera",
+      "name": "Rodrigo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/655187?v=4",
+      "profile": "https://www.rodrigoaguilera.net",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "DarshBhavnani",
+      "name": "Darsh Bhavnani",
+      "avatar_url": "https://avatars.githubusercontent.com/u/131427031?v=4",
+      "profile": "https://github.com/DarshBhavnani",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
