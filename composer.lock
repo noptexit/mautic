@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c1f728fc6ebce497803e0afb22dc221",
+    "content-hash": "46b54265380e77f94cf03bd8a47fe4ce",
     "packages": [
         {
             "name": "api-platform/core",
@@ -6129,7 +6129,7 @@
             "dist": {
                 "type": "path",
                 "url": "app",
-                "reference": "0d3182dcdfd44755e8775aa3950b72ac31cc5279"
+                "reference": "0325526546d4851395cfff6c59e3ea08d8e3c375"
             },
             "require": {
                 "api-platform/core": "^4.1.0",
@@ -6217,6 +6217,7 @@
                 "symfony/translation": "^7.3",
                 "symfony/twig-bundle": "^7.3",
                 "symfony/validator": "^7.3",
+                "twig/string-extra": "^3.21",
                 "twilio/sdk": "^5.25",
                 "wikimedia/less.php": "^5.4"
             },
