@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Mautic\Composer;
 
 use Composer\Script\Event;
+use Mautic\Composer\Exception\MessageOfTheDayException;
 use Symfony\Component\Console\Helper\Helper;
 
 final class MessageOfTheDay
@@ -26,7 +27,7 @@ final class MessageOfTheDay
                 $event,
                 $selectedMessage
             );
-        } catch (\Throwable $e) {
+        } catch (MessageOfTheDayException $e) {
             $event->getIO()->writeError('<error>Failed to load MOTD: '.$e->getMessage().'</error>');
         }
     }
@@ -40,16 +41,18 @@ final class MessageOfTheDay
         $config = $extra['motd'] ?? [];
 
         if (empty($config['url'])) {
-            throw new \RuntimeException('MOTD URL is not configured in composer.json extra.motd.url');
+            throw new MessageOfTheDayException('MOTD URL is not configured in composer.json extra.motd.url');
         }
 
         if (false === filter_var($config['url'], FILTER_VALIDATE_URL)) {
-            throw new \RuntimeException('MOTD URL is not valid');
+            throw new MessageOfTheDayException('MOTD URL is not valid');
         }
+
+        $defaultCachePath = sys_get_temp_dir().DIRECTORY_SEPARATOR.'mautic-motd.json';
 
         return [
             'url'        => $config['url'],
-            'cache-path' => $config['cache-path'] ?? sys_get_temp_dir().DIRECTORY_SEPARATOR.'mautic-motd.json',
+            'cache-path' => $config['cache-path'] ?? $defaultCachePath,
             'cache-ttl'  => (int) ($config['cache-ttl'] ?? 3600), // by default cache for 1 hour
         ];
     }
@@ -132,7 +135,7 @@ final class MessageOfTheDay
         $json          = file_get_contents($config['url'], false, $streamContext);
 
         if (false === $json) {
-            throw new \RuntimeException('Could not fetch motd.json');
+            throw new MessageOfTheDayException('Could not fetch motd.json');
         }
 
         @file_put_contents($cachePath, $json);
