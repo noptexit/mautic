@@ -283,10 +283,10 @@
       ]
     },
     {
-      "login": "ts-navghane",
+      "login": "tejasync",
       "name": "Tejas Navghane",
       "avatar_url": "https://avatars.githubusercontent.com/u/54406786?v=4",
-      "profile": "https://github.com/ts-navghane",
+      "profile": "https://github.com/tejasync",
       "contributions": [
         "test",
         "code",
@@ -1649,6 +1649,51 @@
       "name": "Benisyoga",
       "avatar_url": "https://avatars.githubusercontent.com/u/197698659?v=4",
       "profile": "https://github.com/BeniShoga1",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kniziol",
+      "name": "Krzysztof Nizioł",
+      "avatar_url": "https://avatars.githubusercontent.com/u/947620?v=4",
+      "profile": "https://niziol.me",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "lexxxel",
+      "name": "Alexander Petermann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5159138?v=4",
+      "profile": "http://extrahourdevs.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "feranmiemmanuel",
+      "name": "Olasunkanmi Emmanuel Jesuferanmi ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44700185?v=4",
+      "profile": "https://github.com/feranmiemmanuel",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "pfz",
+      "name": "Francois Paulin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1042926?v=4",
+      "profile": "https://pfzone.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "introfini",
+      "name": "José Fernandes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/104880?v=4",
+      "profile": "https://github.com/introfini",
       "contributions": [
         "code"
       ]
