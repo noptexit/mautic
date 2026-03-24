@@ -216,7 +216,7 @@
       }
     },
     "motd": {
-      "url": "https://raw.githubusercontent.com/mautic/motd/main/motd.json"
+      "url": "https://mautic.github.io/motd/motd.json"
     }
   }
 }
