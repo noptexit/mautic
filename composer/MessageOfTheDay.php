@@ -89,7 +89,8 @@ final class MessageOfTheDay
             return $messages;
         }
 
-        $now = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
+        $utc = new \DateTimeZone('UTC');
+        $now = new \DateTimeImmutable('now', $utc);
 
         foreach ($data['messages'] as $message) {
             if (empty($message['content']) || !is_array($message['content'])) {
@@ -110,8 +111,8 @@ final class MessageOfTheDay
             }
 
             try {
-                $start = !empty($message['start']) ? new \DateTimeImmutable($message['start']) : null;
-                $end   = !empty($message['end']) ? new \DateTimeImmutable($message['end']) : null;
+                $start = !empty($message['start']) ? new \DateTimeImmutable($message['start'], $utc) : null;
+                $end   = !empty($message['end']) ? new \DateTimeImmutable($message['end'], $utc) : null;
             } catch (\Exception) {
                 // Skip message if date parsing fails
                 continue;
