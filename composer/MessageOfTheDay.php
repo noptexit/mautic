@@ -106,8 +106,8 @@ final class MessageOfTheDay
             try {
                 $start = !empty($message['start']) ? new \DateTimeImmutable($message['start']) : null;
                 $end   = !empty($message['end']) ? new \DateTimeImmutable($message['end']) : null;
-            } catch (\DateMalformedStringException|\Exception) {
-                // Skip message if date parsing fails (PHP < 8.3 throws Exception, PHP >= 8.3 throws DateMalformedStringException)
+            } catch (\Exception) {
+                // Skip message if date parsing fails
                 continue;
             }
 
