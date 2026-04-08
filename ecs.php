@@ -9,6 +9,7 @@ use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 return function (ECSConfig $ecsConfig): void {
     $ecsConfig->paths([
         __DIR__.'/app',
+        __DIR__.'/composer',
         __DIR__.'/config',
         __DIR__.'/plugins',
         __DIR__.'/tests',
