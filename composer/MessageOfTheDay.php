@@ -19,11 +19,11 @@ final class MessageOfTheDay
 
             $messages = self::getMessages($config);
 
-            if ([] === $messages) {
+            $selectedMessage = self::selectMessage($messages);
+
+            if (null === $selectedMessage) {
                 return;
             }
-
-            $selectedMessage = $messages[array_rand($messages)];
 
             self::renderMessage(
                 $event,
@@ -62,7 +62,12 @@ final class MessageOfTheDay
     /**
      * @param array{url: string, cache-path: string, cache-ttl: int} $config
      *
-     * @return list<array{category: array{label: string}, lines: list<string>}>
+     * @return array{
+     *     timed: list<array{category: array{label: string}, lines: list<string>}>,
+     *     timeless: list<array{category: array{label: string}, lines: list<string>}>
+     * }
+     *
+     * @throws MessageOfTheDayException
      */
     private static function getMessages(array $config): array
     {
@@ -74,16 +79,17 @@ final class MessageOfTheDay
             throw new MessageOfTheDayException('Could not decode MOTD JSON');
         }
 
+        $messages = ['timed' => [], 'timeless' => []];
+
         if (empty($data['messages']) || !is_array($data['messages'])) {
-            return [];
+            return $messages;
         }
 
         if (empty($data['categories']) || !is_array($data['categories'])) {
-            return [];
+            return $messages;
         }
 
-        $now            = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
-        $activeMessages = [];
+        $now = new \DateTimeImmutable('now', new \DateTimeZone('UTC'));
 
         foreach ($data['messages'] as $message) {
             if (empty($message['content']) || !is_array($message['content'])) {
@@ -119,13 +125,45 @@ final class MessageOfTheDay
                 continue;
             }
 
-            $activeMessages[] = [
+            $pool = (null !== $start || null !== $end) ? 'timed' : 'timeless';
+
+            $messages[$pool][] = [
                 'category' => $data['categories'][$message['category']],
                 'lines'    => $message['content'][self::CHANNEL],
             ];
         }
 
-        return $activeMessages;
+        return $messages;
+    }
+
+    /**
+     * @param array{
+     *     timed: list<array{category: array{label: string}, lines: list<string>}>,
+     *     timeless: list<array{category: array{label: string}, lines: list<string>}>
+     * } $messages
+     *
+     * @return array{category: array{label: string}, lines: list<string>}|null
+     */
+    private static function selectMessage(array $messages): ?array
+    {
+        ['timed' => $timed, 'timeless' => $timeless] = $messages;
+
+        if ([] === $timed && [] === $timeless) {
+            return null;
+        }
+
+        if ([] === $timed) {
+            return $timeless[array_rand($timeless)];
+        }
+
+        if ([] === $timeless) {
+            return $timed[array_rand($timed)];
+        }
+
+        // When both sets are non-empty, pick timed message 75% of the time
+        $pool = (random_int(1, 100) <= 75) ? $timed : $timeless;
+
+        return $pool[array_rand($pool)];
     }
 
     /**
