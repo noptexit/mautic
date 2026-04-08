@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Mautic\Composer;
 
+use Composer\Downloader\TransportException;
+use Composer\IO\IOInterface;
 use Composer\Script\Event;
+use Composer\Util\HttpDownloader;
 use Mautic\Composer\Exception\MessageOfTheDayException;
 use Symfony\Component\Console\Helper\Helper;
 
@@ -17,7 +20,13 @@ final class MessageOfTheDay
         try {
             $config = self::readConfig($event);
 
-            $messages = self::getMessages($config);
+            $io             = $event->getIO();
+            $composerConfig = $event->getComposer()->getConfig();
+            $downloader     = new HttpDownloader($io, $composerConfig);
+
+            $json = self::fetchMotdJson($config, $downloader, $io);
+
+            $messages = self::getMessages($json);
 
             $selectedMessage = self::selectMessage($messages);
 
@@ -60,8 +69,6 @@ final class MessageOfTheDay
     }
 
     /**
-     * @param array{url: string, cache-path: string, cache-ttl: int} $config
-     *
      * @return array{
      *     timed: list<array{category: array{label: string}, lines: list<string>}>,
      *     timeless: list<array{category: array{label: string}, lines: list<string>}>
@@ -69,10 +76,8 @@ final class MessageOfTheDay
      *
      * @throws MessageOfTheDayException
      */
-    private static function getMessages(array $config): array
+    private static function getMessages(string $json): array
     {
-        $json = self::fetchMotdJson($config);
-
         try {
             $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
         } catch (\JsonException) {
@@ -170,7 +175,7 @@ final class MessageOfTheDay
     /**
      * @param array{url: string, cache-path: string, cache-ttl: int} $config
      */
-    private static function fetchMotdJson(array $config): string
+    private static function fetchMotdJson(array $config, HttpDownloader $downloader, IOInterface $io): string
     {
         $cachePath = $config['cache-path'];
 
@@ -182,14 +187,18 @@ final class MessageOfTheDay
             }
         }
 
-        $streamContext = stream_context_create(['http' => ['timeout' => 3]]);
-        $json          = file_get_contents($config['url'], false, $streamContext);
-
-        if (false === $json) {
+        try {
+            $response= $downloader->get($config['url']);
+            $json    = $response->getBody();
+        } catch (TransportException) {
             throw new MessageOfTheDayException('Could not fetch motd.json');
         }
 
-        @file_put_contents($cachePath, $json);
+        $written = file_put_contents($cachePath, $json);
+
+        if (false === $written) {
+            $io->write('<warning>Could not write MOTD cache to '.$cachePath.'</warning>', true, IOInterface::VERBOSE);
+        }
 
         return $json;
     }
