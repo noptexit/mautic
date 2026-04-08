@@ -188,10 +188,20 @@ final class MessageOfTheDay
         }
 
         try {
-            $response= $downloader->get($config['url']);
-            $json    = $response->getBody();
+            $response = $downloader->get($config['url'], [
+                'timeout' => 3,
+                'http'    => [
+                    'header' => ['Accept: application/json'],
+                ],
+            ]);
         } catch (TransportException) {
             throw new MessageOfTheDayException('Could not fetch motd.json');
+        }
+
+        $json = $response->getBody();
+
+        if (null === $json || '' === $json) {
+            throw new MessageOfTheDayException('MOTD response was empty');
         }
 
         $written = file_put_contents($cachePath, $json);
