@@ -107,8 +107,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MauticPlugin\\": "plugins/",
-      "Mautic\\Composer\\": "composer/"
+      "MauticPlugin\\": "plugins/"
     }
   },
   "repositories": [
