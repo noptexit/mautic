@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mautic\Composer\Exception;
+namespace Mautic\CoreBundle\Exception;
 
 final class MessageOfTheDayException extends \RuntimeException
 {

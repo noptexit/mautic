@@ -2,70 +2,52 @@
 
 declare(strict_types=1);
 
-namespace Mautic\Composer;
+namespace Mautic\CoreBundle\Command;
 
-use Composer\Downloader\TransportException;
-use Composer\IO\IOInterface;
-use Composer\Script\Event;
-use Composer\Util\HttpDownloader;
-use Mautic\Composer\Exception\MessageOfTheDayException;
+use Mautic\CoreBundle\Exception\MessageOfTheDayException;
+use Mautic\CoreBundle\Helper\CoreParametersHelper;
+use Symfony\Component\Console\Attribute\AsCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Helper;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class MessageOfTheDay
+#[AsCommand(
+    name: 'mautic:motd',
+    description: 'Displays the Message of the Day'
+)]
+final class MessageOfTheDayCommand extends Command
 {
     private const CHANNEL = 'cli';
 
-    public static function display(Event $event): void
-    {
-        try {
-            $config = self::readConfig($event);
-
-            $io             = $event->getIO();
-            $composerConfig = $event->getComposer()->getConfig();
-            $downloader     = new HttpDownloader($io, $composerConfig);
-
-            $json = self::fetchMotdJson($config, $downloader, $io);
-
-            $messages = self::getMessages($json);
-
-            $selectedMessage = self::selectMessage($messages);
-
-            if (null === $selectedMessage) {
-                return;
-            }
-
-            self::renderMessage(
-                $event,
-                $selectedMessage
-            );
-        } catch (MessageOfTheDayException $e) {
-            $event->getIO()->writeError('<error>Failed to load MOTD: '.$e->getMessage().'</error>');
-        }
+    public function __construct(
+        private readonly HttpClientInterface $httpClient,
+        private readonly CoreParametersHelper $coreParametersHelper,
+    ) {
+        parent::__construct();
     }
 
-    /**
-     * @return array{url: string, cache-path: string, cache-ttl: int}
-     */
-    private static function readConfig(Event $event): array
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $extra  = $event->getComposer()->getPackage()->getExtra();
-        $config = $extra['motd'] ?? [];
+        try {
+            $json            = $this->fetchMotdJson($output);
+            $messages        = $this->getMessages($json);
+            $selectedMessage = $this->selectMessage($messages);
 
-        if (empty($config['url'])) {
-            throw new MessageOfTheDayException('MOTD URL is not configured in composer.json extra.motd.url');
+            if (null === $selectedMessage) {
+                return Command::SUCCESS;
+            }
+
+            $this->renderMessage($output, $selectedMessage);
+        } catch (MessageOfTheDayException $e) {
+            $output->writeln('<error>Failed to load MOTD: '.$e->getMessage().'</error>');
+
+            return Command::FAILURE;
         }
 
-        if (false === filter_var($config['url'], FILTER_VALIDATE_URL)) {
-            throw new MessageOfTheDayException('MOTD URL is not valid');
-        }
-
-        $defaultCachePath = sys_get_temp_dir().DIRECTORY_SEPARATOR.'mautic-motd.json';
-
-        return [
-            'url'        => $config['url'],
-            'cache-path' => $config['cache-path'] ?? $defaultCachePath,
-            'cache-ttl'  => (int) ($config['cache-ttl'] ?? 3600), // by default cache for 1 hour
-        ];
+        return Command::SUCCESS;
     }
 
     /**
@@ -73,12 +55,20 @@ final class MessageOfTheDay
      *     timed: list<array{category: array{label: string}, lines: list<string>}>,
      *     timeless: list<array{category: array{label: string}, lines: list<string>}>
      * }
-     *
-     * @throws MessageOfTheDayException
      */
-    private static function getMessages(string $json): array
+    private function getMessages(string $json): array
     {
         try {
+            /** @var array{
+             *     categories?: array<string, array{label: string}>,
+             *     messages?: array<int, array{
+             *         content: array<string, list<string>>,
+             *         category: string,
+             *         start: string|null,
+             *         end: string|null
+             *     }>
+             * } $data
+             */
             $data = json_decode($json, true, 512, JSON_THROW_ON_ERROR);
         } catch (\JsonException) {
             throw new MessageOfTheDayException('Could not decode MOTD JSON');
@@ -102,7 +92,6 @@ final class MessageOfTheDay
                 continue;
             }
 
-            // Skip messages that have no content for this channel
             if (empty($message['content'][self::CHANNEL]) || !is_array($message['content'][self::CHANNEL])) {
                 continue;
             }
@@ -119,7 +108,6 @@ final class MessageOfTheDay
                 $start = !empty($message['start']) ? new \DateTimeImmutable($message['start'], $utc) : null;
                 $end   = !empty($message['end']) ? new \DateTimeImmutable($message['end'], $utc) : null;
             } catch (\Exception) {
-                // Skip message if date parsing fails
                 continue;
             }
 
@@ -131,7 +119,7 @@ final class MessageOfTheDay
                 continue;
             }
 
-            $pool = (null !== $start || null !== $end) ? 'timed' : 'timeless';
+            $pool = (null !== $start && null !== $end) ? 'timed' : 'timeless';
 
             $messages[$pool][] = [
                 'category' => $data['categories'][$message['category']],
@@ -150,7 +138,7 @@ final class MessageOfTheDay
      *
      * @return array{category: array{label: string}, lines: list<string>}|null
      */
-    private static function selectMessage(array $messages): ?array
+    private function selectMessage(array $messages): ?array
     {
         ['timed' => $timed, 'timeless' => $timeless] = $messages;
 
@@ -172,14 +160,22 @@ final class MessageOfTheDay
         return $pool[array_rand($pool)];
     }
 
-    /**
-     * @param array{url: string, cache-path: string, cache-ttl: int} $config
-     */
-    private static function fetchMotdJson(array $config, HttpDownloader $downloader, IOInterface $io): string
+    private function fetchMotdJson(OutputInterface $output): string
     {
-        $cachePath = $config['cache-path'];
+        $url = $this->coreParametersHelper->get('motd_url');
 
-        if (file_exists($cachePath) && time() - filemtime($cachePath) < $config['cache-ttl']) {
+        if (empty($url)) {
+            throw new MessageOfTheDayException('MOTD URL is not configured');
+        }
+
+        if (false === filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new MessageOfTheDayException('MOTD URL is not valid');
+        }
+
+        $cachePath = $this->coreParametersHelper->get('motd_cache_path');
+        $cacheTtl  = (int) $this->coreParametersHelper->get('motd_cache_ttl');
+
+        if (is_file($cachePath) && time() - filemtime($cachePath) < $cacheTtl) {
             $cached = file_get_contents($cachePath);
 
             if (false !== $cached) {
@@ -188,26 +184,26 @@ final class MessageOfTheDay
         }
 
         try {
-            $response = $downloader->get($config['url'], [
+            $response = $this->httpClient->request('GET', $url, [
                 'timeout' => 3,
-                'http'    => [
-                    'header' => ['Accept: application/json'],
+                'headers' => [
+                    'Accept' => 'application/json',
                 ],
             ]);
-        } catch (TransportException) {
+
+            $json = $response->getContent();
+        } catch (ExceptionInterface) {
             throw new MessageOfTheDayException('Could not fetch motd.json');
         }
 
-        $json = $response->getBody();
-
-        if (null === $json || '' === $json) {
+        if ('' === $json) {
             throw new MessageOfTheDayException('MOTD response was empty');
         }
 
         $written = file_put_contents($cachePath, $json);
 
-        if (false === $written) {
-            $io->write('<warning>Could not write MOTD cache to '.$cachePath.'</warning>', true, IOInterface::VERBOSE);
+        if (false === $written && $output->isVerbose()) {
+            $output->writeln('<error>Could not write MOTD cache to '.$cachePath.'</error>');
         }
 
         return $json;
@@ -216,10 +212,14 @@ final class MessageOfTheDay
     /**
      * @param array{category: array{label: string}, lines: list<string>} $message
      */
-    private static function renderMessage(Event $event, array $message): void
+    private function renderMessage(OutputInterface $output, array $message): void
     {
         $label = $message['category']['label'];
         $lines = $message['lines'];
+
+        if ([] === $lines) {
+            return;
+        }
 
         $horizontalPadding = 2;
         $contentIndent     = 3;
@@ -237,19 +237,29 @@ final class MessageOfTheDay
 
         $padding = str_repeat(' ', $longest + $horizontalPadding * 2);
 
-        $io = $event->getIO();
-
-        $io->write('');
-        $io->write('<fg=white;bg=blue>'.$padding.'</>');
-        $io->write('<fg=white;bg=blue>'.str_repeat(' ', $horizontalPadding).$label.str_repeat(' ', $longest - $labelWidth + $horizontalPadding).'</>');
-        $io->write('<fg=white;bg=blue>'.$padding.'</>');
+        $output->writeln('');
+        $output->writeln('<fg=white;bg=blue>'.$padding.'</>');
+        $output->writeln(
+            '<fg=white;bg=blue>'.
+            str_repeat(' ', $horizontalPadding).
+            $label.
+            str_repeat(' ', $longest - $labelWidth + $horizontalPadding).
+            '</>'
+        );
+        $output->writeln('<fg=white;bg=blue>'.$padding.'</>');
 
         foreach ($lines as $line) {
             $lineWidth = Helper::width($line);
-            $io->write('<fg=white;bg=blue>'.str_repeat(' ', $horizontalPadding + $contentIndent).$line.str_repeat(' ', $longest - $lineWidth - $contentIndent + $horizontalPadding).'</>');
+            $output->writeln(
+                '<fg=white;bg=blue>'.
+                str_repeat(' ', $horizontalPadding + $contentIndent).
+                $line.
+                str_repeat(' ', $longest - $lineWidth - $contentIndent + $horizontalPadding).
+                '</>'
+            );
         }
 
-        $io->write('<fg=white;bg=blue>'.$padding.'</>');
-        $io->write('');
+        $output->writeln('<fg=white;bg=blue>'.$padding.'</>');
+        $output->writeln('');
     }
 }
