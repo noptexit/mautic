@@ -213,7 +213,7 @@ class TagController extends FormController
                         'mauticContent' => 'tagmanager',
                     ],
                 ]);
-            } elseif ($valid && !$cancelled) {
+            } elseif ($valid) {
                 return $this->editAction($request, $tagDependencies, $tag->getId(), true);
             }
         }
@@ -351,9 +351,9 @@ class TagController extends FormController
                         ];
 
                         return $this->postActionRedirect($postActionVars);
-                    } else {
-                        return $this->viewAction($request, $tagDependencies, $tag->getId());
                     }
+
+                    return $this->viewAction($request, $tagDependencies, $tag->getId());
                 }
             }
 
