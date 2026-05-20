@@ -13,6 +13,7 @@ use Mautic\CoreBundle\Form\Type\YesNoButtonGroupType;
 use Mautic\CoreBundle\Security\Permissions\CorePermissions;
 use Mautic\EmailBundle\Form\Type\EmailUtmTagsType;
 use Mautic\FormBundle\Form\Type\FormListType;
+use Mautic\ProjectBundle\Form\Type\ProjectType;
 use MauticPlugin\MauticFocusBundle\Entity\Focus;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -34,7 +35,7 @@ class FocusType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->addEventSubscriber(new CleanFormSubscriber(['website' => 'url', 'html' => 'html', 'editor' => 'html']));
+        $builder->addEventSubscriber(new CleanFormSubscriber(['website' => 'url', 'html' => 'html', 'editor' => 'html', 'description' => 'html']));
         $builder->addEventSubscriber(new FormExitSubscriber('focus', $options));
 
         $builder->add(
@@ -145,6 +146,8 @@ class FocusType extends AbstractType
             ]
         );
 
+        $builder->add('projects', ProjectType::class);
+
         if (!empty($options['data']) && $options['data']->getId()) {
             $readonly = !$this->security->isGranted('focus:items:publish');
             $data     = $options['data']->isPublished(false);
@@ -197,7 +200,7 @@ class FocusType extends AbstractType
                 'name'  => 'builder',
                 'label' => 'mautic.core.builder',
                 'attr'  => [
-                    'class'   => 'btn btn-ghost btn-dnd btn-nospin',
+                    'class'   => 'btn btn-tertiary btn-dnd btn-nospin',
                     'icon'    => 'ri-layout-line',
                     'onclick' => 'Mautic.launchFocusBuilder();',
                 ],
