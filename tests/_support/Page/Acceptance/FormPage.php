@@ -15,4 +15,6 @@ class FormPage
     public static string $FORM_FIELD_EMAIL_SELECTOR             = '//li[contains(text(), "Email")]';
     public static string $FORM_FIELD_LABEL_SELECTOR             = 'input[name="formfield[label]"]';
     public static string $FORM_FIELD_SAVE_BUTTON_SELECTOR       = 'div.modal-footer button.btn-primary';
+    public static string $ACTION_MODAL_SELECTOR                 = '#MauticSharedModal';
+    public static string $ACTION_MODAL_SAVE_BUTTON              = 'button[name="formaction[buttons][save]"]';
 }
