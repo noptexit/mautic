@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27ff82ae29ef2210be94c92b6226def9",
+    "content-hash": "9ab9668aac5800be33690a32db8ebb29",
     "packages": [
         {
             "name": "api-platform/core",
@@ -4412,12 +4412,12 @@
             "version": "7.2.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/chrislim2888/IP2Location-PHP-Module.git",
+                "url": "https://github.com/ip2location/IP2Location-PHP-Module.git",
                 "reference": "5f637f2e95e51861b9d969aa98f4e5868074f922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chrislim2888/IP2Location-PHP-Module/zipball/5f637f2e95e51861b9d969aa98f4e5868074f922",
+                "url": "https://api.github.com/repos/ip2location/IP2Location-PHP-Module/zipball/5f637f2e95e51861b9d969aa98f4e5868074f922",
                 "reference": "5f637f2e95e51861b9d969aa98f4e5868074f922",
                 "shasum": ""
             },
@@ -6264,7 +6264,7 @@
             "dist": {
                 "type": "path",
                 "url": "app",
-                "reference": "3bd16466eae918a7dacda8ed087e5e4fa6c0f972"
+                "reference": "09f9a63980d08bcafb698fed1bd07942e9fa9159"
             },
             "require": {
                 "api-platform/core": "^4.1.0",
@@ -6374,7 +6374,6 @@
                         "[project-root]/config/.gitkeep": "assets/scaffold/files/gitkeep",
                         "[project-root]/patches/at.js+1.5.4.patch": "assets/scaffold/files/patches/at.js+1.5.4.patch",
                         "[project-root]/patches/chosen-js+1.8.7.patch": "assets/scaffold/files/patches/chosen-js+1.8.7.patch",
-                        "[project-root]/patches/studio-42-elfinder-php85-float-cast.patch": "assets/scaffold/files/patches/studio-42-elfinder-php85-float-cast.patch",
                         "[web-root]/.htaccess": "assets/scaffold/files/htaccess",
                         "[web-root]/index.php": "assets/scaffold/files/index.php",
                         "[web-root]/robots.txt": "assets/scaffold/files/robots.txt",
@@ -18937,12 +18936,12 @@
             "version": "12.0.13",
             "source": {
                 "type": "git",
-                "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
+                "url": "https://github.com/easy-coding-standard/ecs.git",
                 "reference": "d15707b14d50b7cb6d656f7a7a5e5b9a17099b3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/d15707b14d50b7cb6d656f7a7a5e5b9a17099b3c",
+                "url": "https://api.github.com/repos/easy-coding-standard/ecs/zipball/d15707b14d50b7cb6d656f7a7a5e5b9a17099b3c",
                 "reference": "d15707b14d50b7cb6d656f7a7a5e5b9a17099b3c",
                 "shasum": ""
             },
