@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "755217aa246931e02c872c2098f5db88",
+    "content-hash": "8d811563d15e5de1e68ebb798f9a29e7",
     "packages": [
         {
             "name": "api-platform/core",
@@ -6264,7 +6264,7 @@
             "dist": {
                 "type": "path",
                 "url": "app",
-                "reference": "ea1391b4fd3c3aeb7a5ccf3dcaa05d0ffd74ca44"
+                "reference": "14f1ca2f220ac0ec776e1573077c4fd49f2b290e"
             },
             "require": {
                 "api-platform/core": "^4.1.0",
@@ -6369,6 +6369,7 @@
                         "[project-root]/.env": "assets/scaffold/files/.env",
                         "[project-root]/.gitignore": "assets/scaffold/files/example.gitignore",
                         "[project-root]/webpack.config.js": "assets/scaffold/files/webpack.config.js",
+                        "[project-root]/importmap.php": "assets/scaffold/files/importmap.php",
                         "[project-root]/tsconfig.json": "assets/scaffold/files/tsconfig.json",
                         "[project-root]/package.json": "assets/scaffold/files/package.json",
                         "[project-root]/package-lock.json": "assets/scaffold/files/package-lock.json",
