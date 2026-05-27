@@ -16,5 +16,5 @@ class FormPage
     public static string $FORM_FIELD_LABEL_SELECTOR             = 'input[name="formfield[label]"]';
     public static string $FORM_FIELD_SAVE_BUTTON_SELECTOR       = 'div.modal-footer button.btn-primary';
     public static string $actionModalSelector                   = '#MauticSharedModal';
-    public static string $actionModalSaveButton                 = 'button[name="formaction[buttons][save]"]';
+    public static string $actionModalSaveButton                 = '#MauticSharedModal .modal-footer .btn-save';
 }
