@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Mautic\CoreBundle\Rector\UnserializeToSerializerDecodeRector;
+use MauticRector\UnserializeToSerializerDecodeRector;
 use Rector\CodeQuality\Rector\ClassMethod\OptionalParametersAfterRequiredRector;
 use Rector\CodeQuality\Rector\FunctionLike\SimplifyUselessVariableRector;
 use Rector\Config\RectorConfig;
@@ -107,7 +107,7 @@ return RectorConfig::configure()
 
         // Skip the rule file itself
         UnserializeToSerializerDecodeRector::class => [
-            __DIR__.'/app/bundles/CoreBundle/Rector',
+            __DIR__.'/rector',
         ],
 
         // handle later with full PHP 8.0 upgrade

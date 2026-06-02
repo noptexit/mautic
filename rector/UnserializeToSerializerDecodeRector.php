@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mautic\CoreBundle\Rector;
+namespace MauticRector;
 
 use Mautic\CoreBundle\Helper\Serializer;
 use PhpParser\Node;
@@ -23,8 +23,8 @@ use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
  * which enforces allowed_classes => false and throws on object-injection payloads.
  *
  * Cases handled:
- *   unserialize($x)                              → Serializer::decode($x)
- *   unserialize($x, ['allowed_classes' => false]) → Serializer::decode($x)
+ *   unserialize($x)                               -> Serializer::decode($x)
+ *   unserialize($x, ['allowed_classes' => false]) -> Serializer::decode($x)
  *
  * Cases intentionally skipped (non-default allowed_classes):
  *   unserialize($x, ['allowed_classes' => [SomeClass::class]])
@@ -38,11 +38,11 @@ final class UnserializeToSerializerDecodeRector extends AbstractRector
             [
                 new CodeSample(
                     'unserialize($data);',
-                    '\Mautic\CoreBundle\Helper\Serializer::decode($data);',
+                    '\\Mautic\\CoreBundle\\Helper\\Serializer::decode($data);',
                 ),
                 new CodeSample(
                     "unserialize(\$data, ['allowed_classes' => false]);",
-                    '\Mautic\CoreBundle\Helper\Serializer::decode($data);',
+                    '\\Mautic\\CoreBundle\\Helper\\Serializer::decode($data);',
                 ),
             ]
         );
