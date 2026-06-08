@@ -30,10 +30,10 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
     operations: [
         new GetCollection(security: "is_granted('form:forms:viewown')"),
         new Post(security: "is_granted('form:forms:create')"),
-        new Get(security: "is_granted('form:forms:viewown')"),
-        new Put(security: "is_granted('form:forms:editown')"),
-        new Patch(security: "is_granted('form:forms:editother')"),
-        new Delete(security: "is_granted('form:forms:deleteown')"),
+        new Get(security: "is_granted('form:forms:viewown', object)"),
+        new Put(security: "is_granted('form:forms:editown', object)"),
+        new Patch(security: "is_granted('form:forms:editother', object)"),
+        new Delete(security: "is_granted('form:forms:deleteown', object)"),
     ],
     normalizationContext: [
         'groups'                  => ['form:read'],
@@ -52,6 +52,7 @@ class Form extends FormEntity implements UuidInterface
     use ProjectTrait;
 
     public const ENTITY_NAME = 'forms';
+    public const TABLE_NAME  = 'forms';
 
     /**
      * @var int
@@ -163,9 +164,11 @@ class Form extends FormEntity implements UuidInterface
 
     /**
      * @var string|null
+     *
+     * @deprecated since Mautic 7.1, will be removed in 8.0. Form types are no longer used.
      */
     #[Groups(['form:read', 'form:write', 'download:read', 'campaign:read', 'email:read'])]
-    private $formType;
+    private $formType = 'standalone';
 
     /**
      * @var bool|null
@@ -178,6 +181,14 @@ class Form extends FormEntity implements UuidInterface
      */
     #[Groups(['form:read', 'form:write', 'download:read', 'campaign:read', 'email:read'])]
     private $progressiveProfilingLimit;
+
+    #[Groups(['form:read', 'form:write', 'download:read', 'campaign:read', 'email:read'])]
+    private ?int $submissionLimit = null;
+
+    #[Groups(['form:read', 'form:write', 'download:read', 'campaign:read', 'email:read'])]
+    private ?string $submissionLimitMessage = null;
+
+    private int $submissionCount = 0;
 
     /**
      * This var is used to cache the result once gained from the loop.
@@ -275,6 +286,15 @@ class Form extends FormEntity implements UuidInterface
             ->fetchExtraLazy()
             ->build();
 
+        $builder->addNullableField('submissionLimit', Types::INTEGER, 'submission_limit');
+        $builder->createField('submissionLimitMessage', Types::TEXT)
+            ->columnName('submission_limit_message')
+            ->nullable()
+            ->build();
+        $builder->createField('submissionCount', Types::INTEGER)
+            ->columnName('submission_count')
+            ->build();
+
         $builder->addNullableField('formType', 'string', 'form_type');
 
         $builder->createField('noIndex', 'boolean')
@@ -310,10 +330,6 @@ class Form extends FormEntity implements UuidInterface
         $metadata->addPropertyConstraint('postActionProperty', new Assert\NotBlank([
             'message' => 'mautic.form.form.postactionproperty_hideform.notblank',
             'groups'  => ['hideformRequired'],
-        ]));
-
-        $metadata->addPropertyConstraint('formType', new Assert\Choice([
-            'choices' => ['standalone', 'campaign'],
         ]));
 
         $metadata->addPropertyConstraint('progressiveProfilingLimit', new Assert\GreaterThan([
@@ -387,7 +403,7 @@ class Form extends FormEntity implements UuidInterface
     {
         if ('actions' == $prop || 'fields' == $prop) {
             // changes are already computed so just add them
-            $this->changes[$prop][$val[0]] = $val[1];
+            $this->changes[$prop][$val[0] ?? ''] = $val[1];
         } else {
             parent::isChanged($prop, $val);
         }
@@ -798,20 +814,27 @@ class Form extends FormEntity implements UuidInterface
     }
 
     /**
+     * @deprecated since Mautic 7.1, will be removed in 8.0. Form types are no longer used.
+     *
      * @return mixed
      */
     public function getFormType()
     {
+        trigger_deprecation('mautic/mautic', '7.1', 'Form::getFormType() is deprecated and will be removed in 8.0.');
+
         return $this->formType;
     }
 
     /**
+     * @deprecated since Mautic 7.1, will be removed in 8.0. Form types are no longer used.
+     *
      * @param mixed $formType
      *
      * @return Form
      */
     public function setFormType($formType)
     {
+        trigger_deprecation('mautic/mautic', '7.1', 'Form::setFormType() is deprecated and will be removed in 8.0.');
         $this->formType = $formType;
 
         return $this;
@@ -869,8 +892,13 @@ class Form extends FormEntity implements UuidInterface
         return $this->language;
     }
 
+    /**
+     * @deprecated since Mautic 7.1, will be removed in 8.0. All forms can now be used in campaigns.
+     */
     public function isStandalone(): bool
     {
+        trigger_deprecation('mautic/mautic', '7.1', 'Form::isStandalone() is deprecated and will be removed in 8.0.');
+
         return 'campaign' != $this->formType;
     }
 
@@ -948,5 +976,48 @@ class Form extends FormEntity implements UuidInterface
     public function getProgressiveProfilingLimit()
     {
         return $this->progressiveProfilingLimit;
+    }
+
+    public function setSubmissionLimit(?int $submissionLimit): self
+    {
+        $this->isChanged('submissionLimit', $submissionLimit);
+        $this->submissionLimit = $submissionLimit;
+
+        return $this;
+    }
+
+    public function getSubmissionLimit(): ?int
+    {
+        return $this->submissionLimit;
+    }
+
+    public function setSubmissionLimitMessage(?string $message): self
+    {
+        $this->isChanged('submissionLimitMessage', $message);
+        $this->submissionLimitMessage = $message;
+
+        return $this;
+    }
+
+    public function getSubmissionLimitMessage(): ?string
+    {
+        return $this->submissionLimitMessage;
+    }
+
+    public function getSubmissionCount(): int
+    {
+        return $this->submissionCount;
+    }
+
+    public function setSubmissionCount(int $count): self
+    {
+        $this->submissionCount = $count;
+
+        return $this;
+    }
+
+    public function isSubmissionLimitReached(): bool
+    {
+        return null !== $this->submissionLimit && $this->submissionLimit > 0 && $this->submissionCount >= $this->submissionLimit;
     }
 }

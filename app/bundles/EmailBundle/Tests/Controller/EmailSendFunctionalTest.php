@@ -32,7 +32,7 @@ final class EmailSendFunctionalTest extends MauticMysqlTestCase
                         </body></html>';
         $email = $this->createEmail(
             'test subject',
-            [$segment->getId() => $segment],
+            [$segment->getId() ?? '' => $segment],
             $content
         );
         $this->em->flush();
@@ -52,6 +52,7 @@ final class EmailSendFunctionalTest extends MauticMysqlTestCase
             $response->getContent()
         );
 
+        /** @var MauticMessage[] $messages */
         $messages = [
             self::getMailerMessagesByToAddress('contact-flood-0@doe.com')[0],
             self::getMailerMessagesByToAddress('contact-flood-1@doe.com')[0],
@@ -96,7 +97,7 @@ final class EmailSendFunctionalTest extends MauticMysqlTestCase
         Assert::assertNotEquals($unsubscribeMatches1[1], $unsubscribeMatches2[1], $messages[0]->getHtmlBody());
     }
 
-    public function testSendEmailWithContactWithInvalidClickthrough(): void
+    public function testEmailSendToBatchOneContact(): void
     {
         $segment = $this->createSegment('Segment A', 'seg-a');
         $this->createContacts(1, $segment);
@@ -106,7 +107,7 @@ final class EmailSendFunctionalTest extends MauticMysqlTestCase
                         </body></html>';
         $email = $this->createEmail(
             'test subject',
-            [$segment->getId() => $segment],
+            [$segment->getId() ?? '' => $segment],
             $content
         );
         $this->em->flush();
@@ -126,9 +127,11 @@ final class EmailSendFunctionalTest extends MauticMysqlTestCase
             $response->getContent()
         );
 
-        $message = self::getMailerMessagesByToAddress('contact-flood-0@doe.com')[0];
+        $rawMessage = self::getMailerMessagesByToAddress('contact-flood-0@doe.com')[0];
+        Assert::assertInstanceOf(\Symfony\Component\Mime\Message::class, $rawMessage);
+        \assert($rawMessage instanceof \Symfony\Component\Mime\Message);
 
-        $body = quoted_printable_decode($message->getBody()->bodyToString());
+        $body = quoted_printable_decode($rawMessage->getBody()->bodyToString());
         preg_match('/<a href=\"([^\"]*)\">(.*)<\/a>/iU', $body, $match);
         Assert::assertArrayHasKey(1, $match, $body);
         $urlParts    = parse_url($match[1]);

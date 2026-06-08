@@ -182,10 +182,8 @@ class RedirectModel extends FormModel
 
     /**
      * Create a Redirect entity for URL.
-     *
-     * @return Redirect
      */
-    public function createRedirectEntity($url)
+    public function createRedirectEntity($url): Redirect
     {
         $redirect = new Redirect();
         $redirect->setUrl($url);

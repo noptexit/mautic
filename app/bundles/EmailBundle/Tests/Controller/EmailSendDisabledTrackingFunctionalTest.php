@@ -27,6 +27,8 @@ final class EmailSendDisabledTrackingFunctionalTest extends MauticMysqlTestCase
     {
         $segment = $this->createSegment('Segment A', []);
 
+        $this->em->flush();
+
         $utmParameters = [
             'utmSource'   => 'utmSourceA',
             'utmMedium'   => 'utmMediumA',
@@ -34,12 +36,12 @@ final class EmailSendDisabledTrackingFunctionalTest extends MauticMysqlTestCase
             'utmContent'  => 'utmContentA',
         ];
 
-        $leads                                          = [];
-        $leads['"Contact 1" <contact-flood-1@doe.com>'] = $this->createLead('Contact 1', '', 'contact-flood-1@doe.com');
-        $this->createListLead($segment, $leads['"Contact 1" <contact-flood-1@doe.com>']);
+        $leads                            = [];
+        $leads['contact-flood-1@doe.com'] = $this->createLead('', '', 'contact-flood-1@doe.com');
+        $this->createListLead($segment, $leads['contact-flood-1@doe.com']);
 
-        $leads['"Contact 2" <contact-flood-2@doe.com>'] = $this->createLead('Contact 2', '', 'contact-flood-2@doe.com');
-        $this->createListLead($segment, $leads['"Contact 2" <contact-flood-2@doe.com>']);
+        $leads['contact-flood-2@doe.com'] = $this->createLead('', '', 'contact-flood-2@doe.com');
+        $this->createListLead($segment, $leads['contact-flood-2@doe.com']);
 
         $content = '<!DOCTYPE html><htm><body><a href="https://localhost">link</a>
                         <a id="{unsubscribe_url}">unsubscribe here</a>
@@ -89,7 +91,9 @@ final class EmailSendDisabledTrackingFunctionalTest extends MauticMysqlTestCase
             Assert::assertSame($utmParameters['utmMedium'], $queryParams['utm_medium']);
             Assert::assertSame($utmParameters['utmCampaign'], $queryParams['utm_campaign']);
             Assert::assertSame($utmParameters['utmContent'], $queryParams['utm_content']);
-            Assert::assertArrayHasKey($message->getTo()[0]->toString(), $leads);
+            $toList = array_values($message->getTo());
+            Assert::assertNotEmpty($toList);
+            Assert::assertArrayHasKey($toList[0]->toString(), $leads);
         }
     }
 
