@@ -184,8 +184,7 @@ final class AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector extends Abs
             return false;
         }
 
-        // Common functional-test conventions for BrowserKit responses.
-        if ('clientResponse' === $node->name || 'response' === $node->name) {
+        if ('clientResponse' === $node->name) {
             return true;
         }
 
