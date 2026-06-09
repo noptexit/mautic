@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
 use Rector\PHPUnit\PHPUnit100\Rector\Class_\ParentTestClassConstructorRector;
 use Rector\PHPUnit\PHPUnit60\Rector\ClassMethod\AddDoesNotPerformAssertionToNonAssertingTestRector;
 use Rector\PHPUnit\PHPUnit60\Rector\MethodCall\GetMockBuilderGetMockToCreateMockRector;
@@ -26,6 +27,7 @@ return RectorConfig::configure()
     ->withRules([
         SpecificAssertContainsRector::class,
         GetMockBuilderGetMockToCreateMockRector::class,
+        RemoveUnusedVariableAssignRector::class,
         WebTestCaseAssertIsSuccessfulRector::class,
     ])
     ->withSkip([
