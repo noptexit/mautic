@@ -11,6 +11,7 @@ use Rector\PHPUnit\PHPUnit60\Rector\MethodCall\GetMockBuilderGetMockToCreateMock
 use Rector\PHPUnit\PHPUnit80\Rector\MethodCall\SpecificAssertContainsRector;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Symfony\Symfony43\Rector\MethodCall\WebTestCaseAssertIsSuccessfulRector;
+use Rector\Symfony\Symfony43\Rector\MethodCall\WebTestCaseAssertResponseCodeRector;
 
 return RectorConfig::configure()
     ->withPaths([
@@ -30,6 +31,7 @@ return RectorConfig::configure()
         GetMockBuilderGetMockToCreateMockRector::class,
         AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector::class,
         RemoveUnusedVariableAssignRector::class,
+        WebTestCaseAssertResponseCodeRector::class,
         WebTestCaseAssertIsSuccessfulRector::class,
     ])
     ->withSkip([
