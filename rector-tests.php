@@ -31,4 +31,8 @@ return RectorConfig::configure()
     ->withSkip([
         AddDoesNotPerformAssertionToNonAssertingTestRector::class, // Adds annotation where it does not belong to.
         ParentTestClassConstructorRector::class, // Adds unnecessary constructors to test classes without custom logic.
+        WebTestCaseAssertIsSuccessfulRector::class => [
+            __DIR__.'/app/bundles/CoreBundle/Tests/Functional/SamlTest.php',
+            __DIR__.'/app/bundles/MarketplaceBundle/Tests/Functional/Controller/AjaxControllerTest.php',
+        ],
     ]);
