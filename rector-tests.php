@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use MauticRector\AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector;
 use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Assign\RemoveUnusedVariableAssignRector;
 use Rector\PHPUnit\PHPUnit100\Rector\Class_\ParentTestClassConstructorRector;
@@ -27,6 +28,7 @@ return RectorConfig::configure()
     ->withRules([
         SpecificAssertContainsRector::class,
         GetMockBuilderGetMockToCreateMockRector::class,
+        AssertTrueResponseIsOkToAssertResponseIsSuccessfulRector::class,
         RemoveUnusedVariableAssignRector::class,
         WebTestCaseAssertIsSuccessfulRector::class,
     ])
