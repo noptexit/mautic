@@ -29,12 +29,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           fetch-depth: 0
 
       - name: Setup DDEV
-        uses: ddev/github-action-setup-ddev@v1
+        uses: ddev/github-action-setup-ddev@fdf2f5c97943bae638f31df6df86f1defa6210c0 # v1
 
       - name: Set up environment variables for test mode
         run: echo -e "APP_ENV=test\nAPP_DEBUG=1" > .env.local
@@ -44,7 +44,7 @@ jobs:
 
       - name: Upload test artifacts
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: e2e-test-screenshots
           path: tests/_output
