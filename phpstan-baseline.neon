@@ -799,12 +799,6 @@ parameters:
 			path: app/bundles/AssetBundle/EventListener/BuilderSubscriber.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/AssetBundle/EventListener/CampaignSubscriber.php
-
-		-
 			message: '#^Method Mautic\\AssetBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerDecision\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -848,12 +842,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/AssetBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Variable \$ids in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/AssetBundle/EventListener/DetermineWinnerSubscriber.php
 
 		-
 			message: '#^Parameter \#2 \$maxUploadSizeMB of method Mautic\\CoreBundle\\Validator\\FileUploadValidator\:\:checkFileSize\(\) expects string, float given\.$#'
@@ -1572,12 +1560,6 @@ parameters:
 		-
 			message: '#^Property Mautic\\CampaignBundle\\Controller\\CampaignController\:\:\$sessionId has no type specified\.$#'
 			identifier: missingType.property
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/CampaignController.php
-
-		-
-			message: '#^Variable \$sessionId in empty\(\) is never defined\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/CampaignBundle/Controller/CampaignController.php
 
@@ -4888,12 +4870,6 @@ parameters:
 			path: app/bundles/ConfigBundle/Service/ConfigChangeLogger.php
 
 		-
-			message: '#^Cannot call method availableOptionValues\(\) on array\<array\<Symfony\\Component\\DomCrawler\\Field\\FormField\>\|Symfony\\Component\\DomCrawler\\Field\\FormField\>\|Symfony\\Component\\DomCrawler\\Field\\FormField\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/ConfigBundle/Tests/Controller/ConfigControllerFunctionalTest.php
-
-		-
 			message: '#^Method Mautic\\ConfigBundle\\Tests\\Controller\\ConfigControllerFunctionalTest\:\:getConfigParameters\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -5194,12 +5170,6 @@ parameters:
 			path: app/bundles/CoreBundle/Controller/Api/StatsApiController.php
 
 		-
-			message: '#^Variable \$themeZip in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/CoreBundle/Controller/Api/ThemeApiController.php
-
-		-
 			message: '#^Call to an undefined method Twig\\Environment\:\:get\(\)\.$#'
 			identifier: method.notFound
 			count: 2
@@ -5403,12 +5373,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\CoreBundle\\Controller\\ThemeController\:\:getIndexPostActionVars\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/CoreBundle/Controller/ThemeController.php
-
-		-
-			message: '#^Variable \$fileData in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/CoreBundle/Controller/ThemeController.php
 
@@ -7607,24 +7571,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/CoreBundle/Form/EventListener/FormExitSubscriber.php
-
-		-
-			message: '#^Cannot call method getCreatedBy\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
-
-		-
-			message: '#^Cannot call method getId\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
-
-		-
-			message: '#^Cannot call method isPublished\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
 
 		-
 			message: '#^Method Mautic\\CoreBundle\\Form\\Type\\ConfigType\:\:getIpServicesChoices\(\) return type has no value type specified in iterable type array\.$#'
@@ -12358,12 +12304,6 @@ parameters:
 			path: app/bundles/EmailBundle/EventListener/ReportSubscriber.php
 
 		-
-			message: '#^Variable \$joins in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/ReportSubscriber.php
-
-		-
 			message: '#^Method Mautic\\EmailBundle\\EventListener\\TokenSubscriber\:\:matchFilterForLead\(\) has parameter \$filter with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -15535,12 +15475,6 @@ parameters:
 			path: app/bundles/FormBundle/Event/ValidationEvent.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/FormBundle/EventListener/CampaignSubscriber.php
-
-		-
 			message: '#^Method Mautic\\FormBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerCondition\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -15605,12 +15539,6 @@ parameters:
 			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/FormBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Variable \$ids in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/FormBundle/EventListener/DetermineWinnerSubscriber.php
 
 		-
 			message: '#^Method Mautic\\FormBundle\\EventListener\\FormSubscriber\:\:getEmailsFromString\(\) has parameter \$emailString with no type specified\.$#'
@@ -15831,12 +15759,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\FormBundle\\Helper\\FormUploader\:\:fixRotationJPG\(\) has parameter \$filename with no type specified\.$#'
 			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Helper/FormUploader.php
-
-		-
-			message: '#^Variable \$ort1 in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: app/bundles/FormBundle/Helper/FormUploader.php
 
@@ -18892,6 +18814,12 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/AuditlogController.php
 
 		-
+			message: '#^PHPDoc tag @throws with type Mautic\\LeadBundle\\Controller\\InvalidArgumentException is not subtype of Throwable$#'
+			identifier: throws.notThrowable
+			count: 1
+			path: app/bundles/LeadBundle/Controller/AuditlogController.php
+
+		-
 			message: '#^Cannot call method getId\(\) on null\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -19176,12 +19104,6 @@ parameters:
 		-
 			message: '#^Call to an undefined method Mautic\\LeadBundle\\Entity\\Lead\:\:getCompanies\(\)\.$#'
 			identifier: method.notFound
-			count: 1
-			path: app/bundles/LeadBundle/Controller/LeadController.php
-
-		-
-			message: '#^Cannot call method getId\(\) on null\.$#'
-			identifier: method.nonObject
 			count: 1
 			path: app/bundles/LeadBundle/Controller/LeadController.php
 
@@ -23459,12 +23381,6 @@ parameters:
 			path: app/bundles/LeadBundle/Form/Validator/Constraints/FieldAliasKeywordValidator.php
 
 		-
-			message: '#^Variable \$oldValue in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/LeadBundle/Form/Validator/Constraints/FieldAliasKeywordValidator.php
-
-		-
 			message: '#^Property Mautic\\LeadBundle\\Form\\Validator\\Constraints\\SegmentInUse\:\:\$message has no type specified\.$#'
 			identifier: missingType.property
 			count: 1
@@ -24632,12 +24548,6 @@ parameters:
 			'''
 			identifier: method.deprecated
 			count: 1
-			path: app/bundles/LeadBundle/Model/ListModel.php
-
-		-
-			message: '#^Cannot call method format\(\) on string\.$#'
-			identifier: method.nonObject
-			count: 4
 			path: app/bundles/LeadBundle/Model/ListModel.php
 
 		-
@@ -26792,12 +26702,6 @@ parameters:
 			path: app/bundles/NotificationBundle/EventListener/CampaignConditionSubscriber.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/NotificationBundle/Helper/NotificationHelper.php
-
-		-
 			message: '#^Method Mautic\\NotificationBundle\\Helper\\NotificationHelper\:\:getHeaderScript\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -27606,30 +27510,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/PageBundle/EventListener/BuilderSubscriber.php
-
-		-
-			message: '#^Cannot call method getDeviceStat\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 2
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getPage\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getReferer\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getUrl\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
 
 		-
 			message: '#^Method Mautic\\PageBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerAction\(\) has no return type specified\.$#'
@@ -29112,18 +28992,6 @@ parameters:
 			identifier: classConstant.deprecatedClass
 			count: 1
 			path: app/bundles/PluginBundle/Form/Type/DetailsType.php
-
-		-
-			message: '#^Variable \$fields in empty\(\) is never defined\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/PluginBundle/Form/Type/FeatureSettingsType.php
-
-		-
-			message: '#^Variable \$integrationCompanyFields in empty\(\) is never defined\.$#'
-			identifier: empty.variable
-			count: 1
-			path: app/bundles/PluginBundle/Form/Type/FeatureSettingsType.php
 
 		-
 			message: '#^Method Mautic\\PluginBundle\\Form\\Type\\FieldsType\:\:buildFieldView\(\) has no return type specified\.$#'
@@ -37430,24 +37298,6 @@ parameters:
 			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
 
 		-
-			message: '#^Variable \$mauticCompanyFieldString in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
-			message: '#^Variable \$objectFields in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
-			message: '#^Variable \$personIds in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SalesforceIntegration.php
-
-		-
 			message: '#^Call to an undefined method MauticPlugin\\MauticCrmBundle\\Api\\CrmApi\:\:getEmailBySugarUserId\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -37945,12 +37795,6 @@ parameters:
 		-
 			message: '#^Return type \(array\) of method MauticPlugin\\MauticCrmBundle\\Integration\\SugarcrmIntegration\:\:authCallback\(\) should be compatible with return type \(bool\|string\) of method Mautic\\PluginBundle\\Integration\\AbstractIntegration\:\:authCallback\(\)$#'
 			identifier: method.childReturnType
-			count: 1
-			path: plugins/MauticCrmBundle/Integration/SugarcrmIntegration.php
-
-		-
-			message: '#^Variable \$sugarObjects in empty\(\) always exists and is not falsy\.$#'
-			identifier: empty.variable
 			count: 1
 			path: plugins/MauticCrmBundle/Integration/SugarcrmIntegration.php
 
