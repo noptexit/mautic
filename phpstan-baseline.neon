@@ -18820,12 +18820,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/AuditlogController.php
 
 		-
-			message: '#^Cannot call method getId\(\) on null\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/LeadBundle/Controller/CompanyController.php
-
-		-
 			message: '''
 				#^Class Mautic\\LeadBundle\\Controller\\CompanyController extends deprecated class Mautic\\CoreBundle\\Controller\\FormController\:
 				2\.3 \- to be removed in 3\.0; use AbstractFormController instead$#
