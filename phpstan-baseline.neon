@@ -1432,18 +1432,6 @@ parameters:
 			path: app/bundles/CampaignBundle/Controller/CampaignController.php
 
 		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\CampaignController\:\:getCampaignSessionId\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/CampaignController.php
-
-		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\CampaignController\:\:getCampaignSessionId\(\) has parameter \$objectId with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/CampaignController.php
-
-		-
 			message: '#^Method Mautic\\CampaignBundle\\Controller\\CampaignController\:\:getIndexItems\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -2893,20 +2881,8 @@ parameters:
 			path: app/bundles/CampaignBundle/EventListener/ConfigSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\CampaignBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/CampaignBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Property Mautic\\CampaignBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/CampaignBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\CampaignBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/CampaignBundle/EventListener/DashboardSubscriber.php
 
@@ -7267,7 +7243,7 @@ parameters:
 			path: app/bundles/CoreBundle/Event/TokenReplacementEvent.php
 
 		-
-			message: '#^PHPDoc type Mautic\\CoreBundle\\Entity\\CommonEntity\|string of property Mautic\\CoreBundle\\Event\\TokenReplacementEvent\:\:\$entity is not covariant with PHPDoc type object of overridden property Mautic\\CoreBundle\\Event\\CommonEvent\:\:\$entity\.$#'
+			message: '#^PHPDoc type Mautic\\CoreBundle\\Entity\\CommonEntity\|string\|null of property Mautic\\CoreBundle\\Event\\TokenReplacementEvent\:\:\$entity is not covariant with PHPDoc type object of overridden property Mautic\\CoreBundle\\Event\\CommonEvent\:\:\$entity\.$#'
 			identifier: property.phpDocType
 			count: 1
 			path: app/bundles/CoreBundle/Event/TokenReplacementEvent.php
@@ -7351,20 +7327,8 @@ parameters:
 			path: app/bundles/CoreBundle/EventListener/CoreSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\CoreBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/CoreBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Parameter \#2 \$id of method Mautic\\CoreBundle\\Model\\AuditLogModel\:\:getLogForObject\(\) expects int\|string, null given\.$#'
 			identifier: argument.type
-			count: 1
-			path: app/bundles/CoreBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\CoreBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/CoreBundle/EventListener/DashboardSubscriber.php
 
@@ -12205,28 +12169,10 @@ parameters:
 			path: app/bundles/EmailBundle/EventListener/CampaignSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\EmailBundle\\EventListener\\DashboardBestHoursSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/DashboardBestHoursSubscriber.php
-
-		-
 			message: '#^Property Mautic\\EmailBundle\\EventListener\\DashboardBestHoursSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/EmailBundle/EventListener/DashboardBestHoursSubscriber.php
-
-		-
-			message: '#^Property Mautic\\EmailBundle\\EventListener\\DashboardBestHoursSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\<string, string\>\>\.$#'
-			identifier: property.defaultValue
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/DashboardBestHoursSubscriber.php
-
-		-
-			message: '#^PHPDoc type string of property Mautic\\EmailBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/DashboardSubscriber.php
 
 		-
 			message: '#^Parameter \#1 \$limit of method Mautic\\EmailBundle\\Model\\EmailModel\:\:getUpcomingEmails\(\) expects int, float given\.$#'
@@ -12237,12 +12183,6 @@ parameters:
 		-
 			message: '#^Property Mautic\\EmailBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/EmailBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\EmailBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\<string, string\>\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/EmailBundle/EventListener/DashboardSubscriber.php
 
@@ -15517,12 +15457,6 @@ parameters:
 			path: app/bundles/FormBundle/EventListener/CampaignSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\FormBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/FormBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Parameter \#4 \$filters of method Mautic\\FormBundle\\Model\\SubmissionModel\:\:getTopSubmissionReferrers\(\) expects array, bool given\.$#'
 			identifier: argument.type
 			count: 1
@@ -15543,12 +15477,6 @@ parameters:
 		-
 			message: '#^Property Mautic\\FormBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/FormBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\FormBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/FormBundle/EventListener/DashboardSubscriber.php
 
@@ -17414,30 +17342,6 @@ parameters:
 			identifier: return.phpDocType
 			count: 1
 			path: app/bundles/IntegrationsBundle/Sync/DAO/Sync/Order/NotificationDAO.php
-
-		-
-			message: '#^Method Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\ObjectChangeDAO\:\:getChangedFields\(\) should return array\<Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\> but returns Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/IntegrationsBundle/Sync/DAO/Sync/Order/ObjectChangeDAO.php
-
-		-
-			message: '#^Method Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\ObjectChangeDAO\:\:getRequiredFields\(\) should return array\<Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\> but returns Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/IntegrationsBundle/Sync/DAO/Sync/Order/ObjectChangeDAO.php
-
-		-
-			message: '#^Method Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\ObjectChangeDAO\:\:getUnchangedFields\(\) should return array\<Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\> but returns Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/IntegrationsBundle/Sync/DAO/Sync/Order/ObjectChangeDAO.php
-
-		-
-			message: '#^Property Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\ObjectChangeDAO\:\:\$fieldsByState \(array\<Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\FieldDAO\>\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
-			count: 1
-			path: app/bundles/IntegrationsBundle/Sync/DAO/Sync/Order/ObjectChangeDAO.php
 
 		-
 			message: '#^Method Mautic\\IntegrationsBundle\\Sync\\DAO\\Sync\\Order\\OrderDAO\:\:__construct\(\) has parameter \$options with no value type specified in iterable type array\.$#'
@@ -20575,12 +20479,6 @@ parameters:
 			path: app/bundles/LeadBundle/Entity/FrequencyRule.php
 
 		-
-			message: '#^Property Mautic\\LeadBundle\\Entity\\FrequencyRule\:\:\$preferredChannel \(bool\) does not accept default value of type int\.$#'
-			identifier: property.defaultValue
-			count: 1
-			path: app/bundles/LeadBundle/Entity/FrequencyRule.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Entity\\FrequencyRuleRepository\:\:getAppliedFrequencyRules\(\) has parameter \$leadIds with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -22718,12 +22616,6 @@ parameters:
 			path: app/bundles/LeadBundle/EventListener/DashboardSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\LeadBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/LeadBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Parameter \#3 \$filters of method Mautic\\LeadBundle\\Model\\LeadModel\:\:getAnonymousVsIdentifiedPieChartData\(\) expects array, bool given\.$#'
 			identifier: argument.type
 			count: 1
@@ -22738,12 +22630,6 @@ parameters:
 		-
 			message: '#^Property Mautic\\LeadBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\LeadBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\<string, string\>\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/LeadBundle/EventListener/DashboardSubscriber.php
 
@@ -24684,24 +24570,6 @@ parameters:
 
 		-
 			message: '#^Method Mautic\\LeadBundle\\Model\\ListModel\:\:getLifeCycleSegmentChartData\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Model/ListModel.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Model\\ListModel\:\:getLifeCycleSegments\(\) has parameter \$canViewOthers with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Model/ListModel.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Model\\ListModel\:\:getLifeCycleSegments\(\) has parameter \$segments with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Model/ListModel.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Model\\ListModel\:\:getLifeCycleSegments\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/LeadBundle/Model/ListModel.php
@@ -27587,20 +27455,8 @@ parameters:
 			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\PageBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/PageBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Property Mautic\\PageBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/PageBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\PageBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\<string, string\>\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/PageBundle/EventListener/DashboardSubscriber.php
 
@@ -30821,20 +30677,8 @@ parameters:
 			path: app/bundles/PointBundle/Event/TriggerBuilderEvent.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\PointBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/PointBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Property Mautic\\PointBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/PointBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\PointBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/PointBundle/EventListener/DashboardSubscriber.php
 
@@ -31511,20 +31355,8 @@ parameters:
 			path: app/bundles/ReportBundle/Event/ReportQueryEvent.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\ReportBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/ReportBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Property Mautic\\ReportBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/ReportBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\ReportBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\<string, string\>\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/ReportBundle/EventListener/DashboardSubscriber.php
 
@@ -32621,20 +32453,8 @@ parameters:
 			path: app/bundles/StageBundle/Event/StageBuilderEvent.php
 
 		-
-			message: '#^PHPDoc type string of property Mautic\\StageBundle\\EventListener\\DashboardSubscriber\:\:\$types is not covariant with PHPDoc type array of overridden property Mautic\\DashboardBundle\\EventListener\\DashboardSubscriber\:\:\$types\.$#'
-			identifier: property.phpDocType
-			count: 1
-			path: app/bundles/StageBundle/EventListener/DashboardSubscriber.php
-
-		-
 			message: '#^Property Mautic\\StageBundle\\EventListener\\DashboardSubscriber\:\:\$permissions type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/StageBundle/EventListener/DashboardSubscriber.php
-
-		-
-			message: '#^Property Mautic\\StageBundle\\EventListener\\DashboardSubscriber\:\:\$types \(string\) does not accept default value of type array\<string, array\>\.$#'
-			identifier: property.defaultValue
 			count: 1
 			path: app/bundles/StageBundle/EventListener/DashboardSubscriber.php
 
