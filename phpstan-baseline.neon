@@ -586,12 +586,6 @@ parameters:
 			path: app/bundles/AssetBundle/Entity/Asset.php
 
 		-
-			message: '#^Method Mautic\\AssetBundle\\Entity\\Asset\:\:getFile\(\) should return Symfony\\Component\\HttpFoundation\\File\\UploadedFile but returns Symfony\\Component\\HttpFoundation\\File\\File\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/AssetBundle/Entity/Asset.php
-
-		-
 			message: '#^Method Mautic\\AssetBundle\\Entity\\Asset\:\:getMaxSize\(\) should return string but returns int\.$#'
 			identifier: return.type
 			count: 1
@@ -699,12 +693,6 @@ parameters:
 				Use addContact instead; existing implementations will need a migration to rename lead_id to contact_id$#
 			'''
 			identifier: method.deprecated
-			count: 1
-			path: app/bundles/AssetBundle/Entity/Download.php
-
-		-
-			message: '#^Method Mautic\\AssetBundle\\Entity\\Download\:\:getTrackingId\(\) should return int but returns string\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/AssetBundle/Entity/Download.php
 
@@ -6475,12 +6463,6 @@ parameters:
 			path: app/bundles/CoreBundle/Entity/CommonRepository.php
 
 		-
-			message: '#^Method Mautic\\CoreBundle\\Entity\\FormEntity\:\:getCheckedOutBy\(\) should return Mautic\\UserBundle\\Entity\\User but returns int\|null\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/CoreBundle/Entity/FormEntity.php
-
-		-
 			message: '#^Property Mautic\\CoreBundle\\Entity\\FormEntity\:\:\$changes type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -10345,12 +10327,6 @@ parameters:
 			message: '#^Negated boolean expression is always false\.$#'
 			identifier: booleanNot.alwaysFalse
 			count: 2
-			path: app/bundles/DashboardBundle/Event/WidgetDetailEvent.php
-
-		-
-			message: '#^Parameter \#1 \$cacheTimeout of method Mautic\\DashboardBundle\\Event\\WidgetDetailEvent\:\:setCacheTimeout\(\) expects string, int given\.$#'
-			identifier: argument.type
-			count: 1
 			path: app/bundles/DashboardBundle/Event/WidgetDetailEvent.php
 
 		-
@@ -20786,12 +20762,6 @@ parameters:
 
 		-
 			message: '#^Method Mautic\\LeadBundle\\Entity\\Import\:\:getParserConfig\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Entity/Import.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Entity\\Import\:\:getProperties\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/LeadBundle/Entity/Import.php
@@ -31289,19 +31259,7 @@ parameters:
 			path: app/bundles/ReportBundle/Entity/Report.php
 
 		-
-			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getColumns\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/ReportBundle/Entity/Report.php
-
-		-
 			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getFilterValues\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/ReportBundle/Entity/Report.php
-
-		-
-			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getFilters\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/ReportBundle/Entity/Report.php
@@ -31321,18 +31279,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getSelectAndAggregatorColumns\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/ReportBundle/Entity/Report.php
-
-		-
-			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getSettings\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/ReportBundle/Entity/Report.php
-
-		-
-			message: '#^Method Mautic\\ReportBundle\\Entity\\Report\:\:getSystem\(\) should return int but returns bool\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/ReportBundle/Entity/Report.php
 
@@ -32218,18 +32164,6 @@ parameters:
 				Use addContact instead; existing implementations will need a migration to rename lead_id to contact_id$#
 			'''
 			identifier: method.deprecated
-			count: 1
-			path: app/bundles/SmsBundle/Entity/Stat.php
-
-		-
-			message: '#^Method Mautic\\SmsBundle\\Entity\\Stat\:\:getDetails\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/SmsBundle/Entity/Stat.php
-
-		-
-			message: '#^Method Mautic\\SmsBundle\\Entity\\Stat\:\:getTokens\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/SmsBundle/Entity/Stat.php
 
@@ -33317,20 +33251,8 @@ parameters:
 			path: app/bundles/UserBundle/Entity/User.php
 
 		-
-			message: '#^Method Mautic\\UserBundle\\Entity\\User\:\:setPreferences\(\) has parameter \$preferences with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/UserBundle/Entity/User.php
-
-		-
 			message: '#^Property Mautic\\UserBundle\\Entity\\User\:\:\$activePermissions has no type specified\.$#'
 			identifier: missingType.property
-			count: 1
-			path: app/bundles/UserBundle/Entity/User.php
-
-		-
-			message: '#^Property Mautic\\UserBundle\\Entity\\User\:\:\$preferences type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/UserBundle/Entity/User.php
 
