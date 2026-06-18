@@ -817,12 +817,6 @@ parameters:
 			path: app/bundles/AssetBundle/EventListener/BuilderSubscriber.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/AssetBundle/EventListener/CampaignSubscriber.php
-
-		-
 			message: '#^Method Mautic\\AssetBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerDecision\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -4918,12 +4912,6 @@ parameters:
 			path: app/bundles/ConfigBundle/Service/ConfigChangeLogger.php
 
 		-
-			message: '#^Cannot call method availableOptionValues\(\) on array\<array\<Symfony\\Component\\DomCrawler\\Field\\FormField\>\|Symfony\\Component\\DomCrawler\\Field\\FormField\>\|Symfony\\Component\\DomCrawler\\Field\\FormField\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/ConfigBundle/Tests/Controller/ConfigControllerFunctionalTest.php
-
-		-
 			message: '#^Method Mautic\\ConfigBundle\\Tests\\Controller\\ConfigControllerFunctionalTest\:\:getConfigParameters\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -7643,24 +7631,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/CoreBundle/Form/EventListener/FormExitSubscriber.php
-
-		-
-			message: '#^Cannot call method getCreatedBy\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
-
-		-
-			message: '#^Cannot call method getId\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
-
-		-
-			message: '#^Cannot call method isPublished\(\) on class\-string\|object\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/CoreBundle/Form/Type/AbstractFormStandardType.php
 
 		-
 			message: '#^Method Mautic\\CoreBundle\\Form\\Type\\ConfigType\:\:getIpServicesChoices\(\) return type has no value type specified in iterable type array\.$#'
@@ -15601,12 +15571,6 @@ parameters:
 			path: app/bundles/FormBundle/Event/ValidationEvent.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/FormBundle/EventListener/CampaignSubscriber.php
-
-		-
 			message: '#^Method Mautic\\FormBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerCondition\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -18976,12 +18940,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/AuditlogController.php
 
 		-
-			message: '#^Cannot call method getId\(\) on null\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/LeadBundle/Controller/CompanyController.php
-
-		-
 			message: '''
 				#^Class Mautic\\LeadBundle\\Controller\\CompanyController extends deprecated class Mautic\\CoreBundle\\Controller\\FormController\:
 				2\.3 \- to be removed in 3\.0; use AbstractFormController instead$#
@@ -19266,12 +19224,6 @@ parameters:
 		-
 			message: '#^Call to an undefined method Mautic\\LeadBundle\\Entity\\Lead\:\:getCompanies\(\)\.$#'
 			identifier: method.notFound
-			count: 1
-			path: app/bundles/LeadBundle/Controller/LeadController.php
-
-		-
-			message: '#^Cannot call method getId\(\) on null\.$#'
-			identifier: method.nonObject
 			count: 1
 			path: app/bundles/LeadBundle/Controller/LeadController.php
 
@@ -24743,12 +24695,6 @@ parameters:
 			path: app/bundles/LeadBundle/Model/ListModel.php
 
 		-
-			message: '#^Cannot call method format\(\) on string\.$#'
-			identifier: method.nonObject
-			count: 4
-			path: app/bundles/LeadBundle/Model/ListModel.php
-
-		-
 			message: '#^Dead catch \- Mautic\\LeadBundle\\Segment\\Exception\\FieldNotFoundException is never thrown in the try block\.$#'
 			identifier: catch.neverThrown
 			count: 1
@@ -26912,12 +26858,6 @@ parameters:
 			path: app/bundles/NotificationBundle/EventListener/CampaignConditionSubscriber.php
 
 		-
-			message: '#^Cannot call method getId\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/NotificationBundle/Helper/NotificationHelper.php
-
-		-
 			message: '#^Method Mautic\\NotificationBundle\\Helper\\NotificationHelper\:\:getHeaderScript\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -27732,30 +27672,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/PageBundle/EventListener/BuilderSubscriber.php
-
-		-
-			message: '#^Cannot call method getDeviceStat\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 2
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getPage\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getReferer\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Cannot call method getUrl\(\) on array\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: app/bundles/PageBundle/EventListener/CampaignSubscriber.php
 
 		-
 			message: '#^Method Mautic\\PageBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerAction\(\) has no return type specified\.$#'
