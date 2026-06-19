@@ -1063,12 +1063,6 @@ parameters:
 			path: app/bundles/CampaignBundle/Controller/Api/CampaignApiController.php
 
 		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\CampaignApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/Api/CampaignApiController.php
-
-		-
 			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\CampaignApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -1159,12 +1153,6 @@ parameters:
 			path: app/bundles/CampaignBundle/Controller/Api/EventApiController.php
 
 		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\EventApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/Api/EventApiController.php
-
-		-
 			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\EventApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -1197,12 +1185,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\EventLogApiController\:\:checkAllAccess\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/Api/EventLogApiController.php
-
-		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\EventLogApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/CampaignBundle/Controller/Api/EventLogApiController.php
 
@@ -4882,12 +4864,6 @@ parameters:
 			message: '#^Call to an undefined method Twig\\Environment\:\:get\(\)\.$#'
 			identifier: method.notFound
 			count: 2
-			path: app/bundles/CoreBundle/Controller/CommonController.php
-
-		-
-			message: '#^Method Mautic\\CoreBundle\\Controller\\CommonController\:\:accessDenied\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
 			path: app/bundles/CoreBundle/Controller/CommonController.php
 
 		-
@@ -9838,12 +9814,6 @@ parameters:
 			path: app/bundles/DynamicContentBundle/Controller/DynamicContentController.php
 
 		-
-			message: '#^Method Mautic\\DynamicContentBundle\\Controller\\DynamicContentController\:\:indexAction\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: app/bundles/DynamicContentBundle/Controller/DynamicContentController.php
-
-		-
 			message: '#^Method Mautic\\DynamicContentBundle\\Controller\\DynamicContentController\:\:indexAction\(\) has parameter \$page with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -10329,12 +10299,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\EmailBundle\\Controller\\Api\\EmailApiController\:\:checkAllAccess\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/EmailBundle/Controller/Api/EmailApiController.php
-
-		-
-			message: '#^Method Mautic\\EmailBundle\\Controller\\Api\\EmailApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/EmailBundle/Controller/Api/EmailApiController.php
 
@@ -13927,18 +13891,6 @@ parameters:
 			path: app/bundles/FormBundle/Controller/ResultController.php
 
 		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\ResultController\:\:deleteAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/FormBundle/Controller/ResultController.php
-
-		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\ResultController\:\:downloadFileAction\(\) should return Symfony\\Component\\HttpFoundation\\BinaryFileResponse but returns array\|Symfony\\Component\\HttpFoundation\\JsonResponse\|Symfony\\Component\\HttpFoundation\\RedirectResponse\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/FormBundle/Controller/ResultController.php
-
-		-
 			message: '#^Method Mautic\\FormBundle\\Controller\\ResultController\:\:generateUrl\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -16906,12 +16858,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/CompanyApiController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\CompanyApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/CompanyApiController.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\CompanyApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -16956,12 +16902,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\DeviceApiController\:\:checkAllAccess\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/DeviceApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\DeviceApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/LeadBundle/Controller/Api/DeviceApiController.php
 
@@ -17326,12 +17266,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/ListApiController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\ListApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/ListApiController.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\ListApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -17370,12 +17304,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\NoteApiController\:\:checkAllAccess\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/NoteApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\NoteApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/LeadBundle/Controller/Api/NoteApiController.php
 
@@ -17800,12 +17728,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/FieldController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\FieldController\:\:indexAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/FieldController.php
-
-		-
 			message: '''
 				#^Call to method generateUrl\(\) of deprecated class Mautic\\CoreBundle\\Controller\\AbstractStandardFormController\:
 				2\.3 \- to be removed in 3\.0; use AbstractFormController instead$#
@@ -17931,12 +17853,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\LeadController\:\:contactFrequencyAction\(\) has parameter \$objectId with no type specified\.$#'
 			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/LeadController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\LeadController\:\:contactFrequencyAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/LeadBundle/Controller/LeadController.php
 
@@ -21328,12 +21244,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\EventListener\\CampaignSubscriber\:\:onCampaignTriggerCondition\(\) has no return type specified\.$#'
 			identifier: missingType.return
-			count: 1
-			path: app/bundles/LeadBundle/EventListener/CampaignSubscriber.php
-
-		-
-			message: '#^Parameter \#1 \$lead of method Mautic\\CampaignBundle\\Entity\\LeadRepository\:\:checkLeadInCampaigns\(\) expects Mautic\\CampaignBundle\\Entity\\Lead, Mautic\\LeadBundle\\Entity\\Lead given\.$#'
-			identifier: argument.type
 			count: 1
 			path: app/bundles/LeadBundle/EventListener/CampaignSubscriber.php
 
@@ -26507,12 +26417,6 @@ parameters:
 			path: app/bundles/PluginBundle/Controller/PluginController.php
 
 		-
-			message: '#^Method Mautic\\PluginBundle\\Controller\\PluginController\:\:infoAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/PluginBundle/Controller/PluginController.php
-
-		-
 			message: '#^Parameter \#1 \$entity of method Mautic\\PluginBundle\\Integration\\AbstractIntegration\:\:getDecryptedApiKeys\(\) expects bool, Mautic\\PluginBundle\\Entity\\Integration given\.$#'
 			identifier: argument.type
 			count: 1
@@ -28364,12 +28268,6 @@ parameters:
 			path: app/bundles/PointBundle/Controller/Api/PointApiController.php
 
 		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\PointApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/PointApiController.php
-
-		-
 			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\PointApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -28439,20 +28337,8 @@ parameters:
 			path: app/bundles/PointBundle/Controller/TriggerController.php
 
 		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\TriggerController\:\:cloneAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/PointBundle/Controller/TriggerController.php
-
-		-
 			message: '#^Method Mautic\\PointBundle\\Controller\\TriggerController\:\:deleteAction\(\) has parameter \$objectId with no type specified\.$#'
 			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/TriggerController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\TriggerController\:\:viewAction\(\) return type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: app/bundles/PointBundle/Controller/TriggerController.php
 
@@ -28970,12 +28856,6 @@ parameters:
 			message: '#^Method Mautic\\ReportBundle\\Controller\\ReportController\:\:downloadAction\(\) should return Symfony\\Component\\HttpFoundation\\BinaryFileResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
 			identifier: return.type
 			count: 2
-			path: app/bundles/ReportBundle/Controller/ReportController.php
-
-		-
-			message: '#^Method Mautic\\ReportBundle\\Controller\\ReportController\:\:downloadAction\(\) should return Symfony\\Component\\HttpFoundation\\BinaryFileResponse but returns array\|Symfony\\Component\\HttpFoundation\\JsonResponse\|Symfony\\Component\\HttpFoundation\\RedirectResponse\.$#'
-			identifier: return.type
-			count: 1
 			path: app/bundles/ReportBundle/Controller/ReportController.php
 
 		-
@@ -29777,12 +29657,6 @@ parameters:
 			path: app/bundles/SmsBundle/Controller/Api/SmsApiController.php
 
 		-
-			message: '#^Method Mautic\\SmsBundle\\Controller\\Api\\SmsApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
-			count: 1
-			path: app/bundles/SmsBundle/Controller/Api/SmsApiController.php
-
-		-
 			message: '#^Method Mautic\\SmsBundle\\Controller\\Api\\SmsApiController\:\:checkLeadAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -30337,12 +30211,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\StageBundle\\Controller\\Api\\StageApiController\:\:checkAllAccess\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/StageBundle/Controller/Api/StageApiController.php
-
-		-
-			message: '#^Method Mautic\\StageBundle\\Controller\\Api\\StageApiController\:\:checkAllAccess\(\) should return array\|Symfony\\Component\\HttpFoundation\\RedirectResponse but returns Symfony\\Component\\HttpFoundation\\Response\.$#'
-			identifier: return.type
 			count: 1
 			path: app/bundles/StageBundle/Controller/Api/StageApiController.php
 
@@ -37201,12 +37069,6 @@ parameters:
 		-
 			message: '#^Method MauticPlugin\\MauticSocialBundle\\Controller\\MonitoringController\:\:generateContactsGrid\(\) has parameter \$routeParameters with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: plugins/MauticSocialBundle/Controller/MonitoringController.php
-
-		-
-			message: '#^Method MauticPlugin\\MauticSocialBundle\\Controller\\MonitoringController\:\:indexAction\(\) has no return type specified\.$#'
-			identifier: missingType.return
 			count: 1
 			path: plugins/MauticSocialBundle/Controller/MonitoringController.php
 
