@@ -69,43 +69,6 @@ return RectorConfig::configure()
             __DIR__.'/app/bundles/IntegrationsBundle/Sync/SyncProcess/Direction/Internal/ObjectChangeGenerator.php',
         ],
 
-        // Needs follow-up refactoring; adding return types here can break BC on public controller actions.
-        ReturnTypeFromStrictTypedCallRector::class => [
-            __DIR__.'/app/bundles/ApiBundle/Controller/ClientController.php',
-            __DIR__.'/app/bundles/AssetBundle/Controller/AssetController.php',
-            __DIR__.'/app/bundles/CampaignBundle/Controller/CampaignController.php',
-            __DIR__.'/app/bundles/CategoryBundle/Controller/CategoryController.php',
-            __DIR__.'/app/bundles/ConfigBundle/Controller/SysinfoController.php',
-            __DIR__.'/app/bundles/CoreBundle/Controller/ThemeController.php',
-            __DIR__.'/app/bundles/DashboardBundle/Controller/DashboardController.php',
-            __DIR__.'/app/bundles/DynamicContentBundle/Controller/DynamicContentController.php',
-            __DIR__.'/app/bundles/EmailBundle/Controller/EmailController.php',
-            __DIR__.'/app/bundles/FormBundle/Controller/FormController.php',
-            __DIR__.'/app/bundles/FormBundle/Controller/ResultController.php',
-            __DIR__.'/app/bundles/LeadBundle/Controller/AjaxController.php',
-            __DIR__.'/app/bundles/LeadBundle/Controller/CompanyController.php',
-            __DIR__.'/app/bundles/LeadBundle/Controller/FieldController.php',
-            __DIR__.'/app/bundles/LeadBundle/Controller/LeadController.php',
-            __DIR__.'/app/bundles/LeadBundle/Controller/ListController.php',
-            __DIR__.'/app/bundles/NotificationBundle/Controller/MobileNotificationController.php',
-            __DIR__.'/app/bundles/NotificationBundle/Controller/NotificationController.php',
-            __DIR__.'/app/bundles/PageBundle/Controller/PageController.php',
-            __DIR__.'/app/bundles/PluginBundle/Controller/PluginController.php',
-            __DIR__.'/app/bundles/PointBundle/Controller/PointController.php',
-            __DIR__.'/app/bundles/PointBundle/Controller/TriggerController.php',
-            __DIR__.'/app/bundles/ReportBundle/Controller/ReportController.php',
-            __DIR__.'/app/bundles/SmsBundle/Controller/SmsController.php',
-            __DIR__.'/app/bundles/StageBundle/Controller/StageController.php',
-            __DIR__.'/app/bundles/UserBundle/Controller/RoleController.php',
-            __DIR__.'/plugins/MauticSocialBundle/Controller/MonitoringController.php',
-            __DIR__.'/plugins/MauticTagManagerBundle/Controller/TagController.php',
-        ],
-
-        // Same BC concern as above for strict inferred array returns on public actions.
-        ReturnTypeFromStrictNewArrayRector::class => [
-            __DIR__.'/app/bundles/CoreBundle/Controller/ThemeController.php',
-        ],
-
         // lets handle later, once we have more type declaratoins
         RecastingRemovalRector::class,
 
