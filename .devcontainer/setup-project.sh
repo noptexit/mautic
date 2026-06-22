@@ -28,4 +28,4 @@ services:
       - 8036:80
 EOF
 
-ddev restart -y
+ddev start -y || ddev restart -y
