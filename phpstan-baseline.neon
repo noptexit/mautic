@@ -982,12 +982,6 @@ parameters:
 			path: app/bundles/AssetBundle/Model/AssetModel.php
 
 		-
-			message: '#^PHPDoc tag @throws with type Mautic\\AssetBundle\\Model\\NotFoundHttpException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 1
-			path: app/bundles/AssetBundle/Model/AssetModel.php
-
-		-
 			message: '#^Parameter \#2 \$dateFrom of class Mautic\\CoreBundle\\Helper\\Chart\\ChartQuery constructor expects DateTime, string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -8096,12 +8090,6 @@ parameters:
 			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/CoreBundle/Helper/FileHelper.php
-
-		-
-			message: '#^PHPDoc tag @throws with type Mautic\\CoreBundle\\Helper\\Exception\\IOException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 1
-			path: app/bundles/CoreBundle/Helper/Filesystem.php
 
 		-
 			message: '#^Left side of && is always false\.$#'
@@ -17464,12 +17452,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/LeadApiController.php
 
 		-
-			message: '#^PHPDoc tag @throws with type Mautic\\LeadBundle\\Controller\\InvalidArgumentException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/LeadApiController.php
-
-		-
 			message: '#^Property Mautic\\LeadBundle\\Controller\\Api\\LeadApiController\:\:\$dncChannels has no type specified\.$#'
 			identifier: missingType.property
 			count: 1
@@ -17941,12 +17923,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/CompanyController.php
 
 		-
-			message: '#^PHPDoc tag @throws with type Mautic\\LeadBundle\\Controller\\InvalidArgumentException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 1
-			path: app/bundles/LeadBundle/Controller/CompanyController.php
-
-		-
 			message: '''
 				#^Class Mautic\\LeadBundle\\Controller\\FieldController extends deprecated class Mautic\\CoreBundle\\Controller\\FormController\:
 				2\.3 \- to be removed in 3\.0; use AbstractFormController instead$#
@@ -18339,12 +18315,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\LeadController\:\:viewAction\(\) has parameter \$objectId with no type specified\.$#'
 			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/LeadController.php
-
-		-
-			message: '#^PHPDoc tag @throws with type Mautic\\LeadBundle\\Controller\\InvalidArgumentException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
 			count: 1
 			path: app/bundles/LeadBundle/Controller/LeadController.php
 
@@ -18834,12 +18804,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\TimelineController\:\:sanitizeEventFilter\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/TimelineController.php
-
-		-
-			message: '#^PHPDoc tag @throws with type Mautic\\LeadBundle\\Controller\\InvalidArgumentException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
 			count: 1
 			path: app/bundles/LeadBundle/Controller/TimelineController.php
 
@@ -36923,12 +36887,6 @@ parameters:
 			path: plugins/MauticFocusBundle/Model/FocusModel.php
 
 		-
-			message: '#^PHPDoc tag @throws with type MauticPlugin\\MauticFocusBundle\\Model\\NotFoundHttpException is not subtype of Throwable$#'
-			identifier: throws.notThrowable
-			count: 1
-			path: plugins/MauticFocusBundle/Model/FocusModel.php
-
-		-
 			message: '#^Method MauticPlugin\\MauticFocusBundle\\Security\\Permissions\\FocusPermissions\:\:__construct\(\) has parameter \$params with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -37165,12 +37123,6 @@ parameters:
 		-
 			message: '#^Method MauticPlugin\\MauticFullContactBundle\\Services\\FullContact_Batch\:\:sendRequests\(\) has parameter \$requests with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: plugins/MauticFullContactBundle/Services/FullContact_Batch.php
-
-		-
-			message: '#^PHPDoc tag @throws with type MauticPlugin\\MauticFullContactBundle\\Exception\\FullContact_Exception_NoCredit\|MauticPlugin\\MauticFullContactBundle\\Exception\\FullContact_Exception_NotImplemented is not subtype of Throwable$#'
-			identifier: throws.notThrowable
 			count: 1
 			path: plugins/MauticFullContactBundle/Services/FullContact_Batch.php
 
