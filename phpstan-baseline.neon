@@ -28724,48 +28724,6 @@ parameters:
 			path: app/bundles/PointBundle/Controller/Api/PointApiController.php
 
 		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:createTriggerEventEntityForm\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:getPointTriggerEventTypesAction\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:preSaveEntity\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Method Mautic\\PointBundle\\Controller\\Api\\TriggerApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
-			message: '#^Parameter \#1 \$prefix of function uniqid expects string, int\<0, max\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: app/bundles/PointBundle/Controller/Api/TriggerApiController.php
-
-		-
 			message: '#^Method Mautic\\PointBundle\\Controller\\PointController\:\:cloneAction\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
