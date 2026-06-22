@@ -14,9 +14,8 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRect
 use Rector\TypeDeclaration\Rector\ClassMethod\NumericReturnTypeFromStrictScalarReturnsRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictConstantReturnRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
+// use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictParamRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
@@ -37,7 +36,6 @@ return RectorConfig::configure()
         NumericReturnTypeFromStrictScalarReturnsRector::class,
         ReturnTypeFromReturnNewRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
-        ReturnTypeFromStrictNewArrayRector::class,
         ReturnTypeFromStrictParamRector::class,
         ReturnTypeFromStrictTernaryRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
@@ -45,12 +43,11 @@ return RectorConfig::configure()
         TypedPropertyFromStrictConstructorRector::class,
         TypedPropertyFromStrictSetUpRector::class,
         SimplifyUselessVariableRector::class,
-        ReturnTypeFromStrictConstantReturnRector::class,
         ReturnTypeFromReturnDirectArrayRector::class,
         UnserializeToSerializerDecodeRector::class,
     ])
     ->reportUnusedSkips()
-    ->withTypeCoverageLevel(6)
+    ->withTypeCoverageLevel(10)
     ->withSkip([
         '*/Test/*',
         '*/Tests/*',
