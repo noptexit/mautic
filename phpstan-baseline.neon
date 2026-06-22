@@ -43,30 +43,6 @@ parameters:
 			path: app/bundles/ApiBundle/Controller/CommonApiController.php
 
 		-
-			message: '#^Method Mautic\\ApiBundle\\Controller\\CommonApiController\:\:preSaveEntity\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/ApiBundle/Controller/CommonApiController.php
-
-		-
-			message: '#^Method Mautic\\ApiBundle\\Controller\\CommonApiController\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/ApiBundle/Controller/CommonApiController.php
-
-		-
-			message: '#^Method Mautic\\ApiBundle\\Controller\\CommonApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/ApiBundle/Controller/CommonApiController.php
-
-		-
-			message: '#^Method Mautic\\ApiBundle\\Controller\\CommonApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/ApiBundle/Controller/CommonApiController.php
-
-		-
 			message: '#^Method Mautic\\ApiBundle\\Controller\\CommonApiController\:\:processBatchForm\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -1137,18 +1113,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\CampaignApiController\:\:modifyCampaignEventArray\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/Api/CampaignApiController.php
-
-		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\CampaignApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/CampaignBundle/Controller/Api/CampaignApiController.php
-
-		-
-			message: '#^Method Mautic\\CampaignBundle\\Controller\\Api\\CampaignApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/CampaignBundle/Controller/Api/CampaignApiController.php
 
@@ -13909,30 +13873,6 @@ parameters:
 			path: app/bundles/FormBundle/Controller/Api/FormApiController.php
 
 		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\Api\\FormApiController\:\:preSaveEntity\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Controller/Api/FormApiController.php
-
-		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\Api\\FormApiController\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Controller/Api/FormApiController.php
-
-		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\Api\\FormApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Controller/Api/FormApiController.php
-
-		-
-			message: '#^Method Mautic\\FormBundle\\Controller\\Api\\FormApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/FormBundle/Controller/Api/FormApiController.php
-
-		-
 			message: '#^Parameter \#1 \$prefix of function uniqid expects string, int\<0, max\> given\.$#'
 			identifier: argument.type
 			count: 2
@@ -17086,18 +17026,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/CompanyApiController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\CompanyApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/CompanyApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\CompanyApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/CompanyApiController.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\DeviceApiController\:\:checkAllAccess\(\) has parameter \$action with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -17140,32 +17068,8 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/DeviceApiController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\DeviceApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/DeviceApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\DeviceApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/DeviceApiController.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\FieldApiController\:\:getWhereFromRequest\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/FieldApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\FieldApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/FieldApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\FieldApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/LeadBundle/Controller/Api/FieldApiController.php
 
@@ -17422,18 +17326,6 @@ parameters:
 			path: app/bundles/LeadBundle/Controller/Api/LeadApiController.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\LeadApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/LeadApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\LeadApiController\:\:preSaveEntity\(\) has parameter \$parameters with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/LeadApiController.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\LeadApiController\:\:removeDncAction\(\) has parameter \$channel with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
@@ -17549,18 +17441,6 @@ parameters:
 
 		-
 			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\NoteApiController\:\:checkLeadAccess\(\) has parameter \$leadId with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/NoteApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\NoteApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Controller/Api/NoteApiController.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Controller\\Api\\NoteApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
 			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/LeadBundle/Controller/Api/NoteApiController.php
@@ -19324,18 +19204,6 @@ parameters:
 			path: app/bundles/LeadBundle/Entity/CompanyRepository.php
 
 		-
-			message: '#^Method Mautic\\LeadBundle\\Entity\\CompanyRepository\:\:preSaveEntity\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: app/bundles/LeadBundle/Entity/CompanyRepository.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Entity\\CompanyRepository\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/LeadBundle/Entity/CompanyRepository.php
-
-		-
 			message: '#^Method Mautic\\LeadBundle\\Entity\\CompanyRepository\:\:prepareDbalFieldsForSave\(\) has no return type specified\.$#'
 			identifier: missingType.return
 			count: 1
@@ -20733,18 +20601,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\LeadBundle\\Entity\\LeadRepository\:\:postSaveEntity\(\) has no return type specified\.$#'
 			identifier: missingType.return
-			count: 1
-			path: app/bundles/LeadBundle/Entity/LeadRepository.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Entity\\LeadRepository\:\:preSaveEntity\(\) has no return type specified\.$#'
-			identifier: missingType.return
-			count: 1
-			path: app/bundles/LeadBundle/Entity/LeadRepository.php
-
-		-
-			message: '#^Method Mautic\\LeadBundle\\Entity\\LeadRepository\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/LeadBundle/Entity/LeadRepository.php
 
@@ -30962,42 +30818,6 @@ parameters:
 			path: app/bundles/StatsBundle/Event/Options/FetchOptions.php
 
 		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\RoleApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/RoleApiController.php
-
-		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\RoleApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/RoleApiController.php
-
-		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\UserApiController\:\:preSaveEntity\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/UserApiController.php
-
-		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\UserApiController\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/UserApiController.php
-
-		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\UserApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/UserApiController.php
-
-		-
-			message: '#^Method Mautic\\UserBundle\\Controller\\Api\\UserApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/UserBundle/Controller/Api/UserApiController.php
-
-		-
 			message: '''
 				#^Class Mautic\\UserBundle\\Controller\\ProfileController extends deprecated class Mautic\\CoreBundle\\Controller\\FormController\:
 				2\.3 \- to be removed in 3\.0; use AbstractFormController instead$#
@@ -31462,30 +31282,6 @@ parameters:
 		-
 			message: '#^Method Mautic\\WebhookBundle\\Controller\\Api\\WebhookApiController\:\:getTriggersAction\(\) has no return type specified\.$#'
 			identifier: missingType.return
-			count: 1
-			path: app/bundles/WebhookBundle/Controller/Api/WebhookApiController.php
-
-		-
-			message: '#^Method Mautic\\WebhookBundle\\Controller\\Api\\WebhookApiController\:\:preSaveEntity\(\) has parameter \$action with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/WebhookBundle/Controller/Api/WebhookApiController.php
-
-		-
-			message: '#^Method Mautic\\WebhookBundle\\Controller\\Api\\WebhookApiController\:\:preSaveEntity\(\) has parameter \$entity with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/WebhookBundle/Controller/Api/WebhookApiController.php
-
-		-
-			message: '#^Method Mautic\\WebhookBundle\\Controller\\Api\\WebhookApiController\:\:preSaveEntity\(\) has parameter \$form with no type specified\.$#'
-			identifier: missingType.parameter
-			count: 1
-			path: app/bundles/WebhookBundle/Controller/Api/WebhookApiController.php
-
-		-
-			message: '#^Method Mautic\\WebhookBundle\\Controller\\Api\\WebhookApiController\:\:preSaveEntity\(\) has parameter \$parameters with no type specified\.$#'
-			identifier: missingType.parameter
 			count: 1
 			path: app/bundles/WebhookBundle/Controller/Api/WebhookApiController.php
 
