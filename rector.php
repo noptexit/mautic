@@ -38,6 +38,7 @@ return RectorConfig::configure()
     ->withCache(__DIR__.'/var/cache/rector')
     ->withRules([
 <<<<<<< HEAD
+<<<<<<< HEAD
         Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
 <<<<<<< HEAD
@@ -51,8 +52,22 @@ return RectorConfig::configure()
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
 
 >>>>>>> 87a0d28c49 (apply demorgan rule for more readble conds)
+<<<<<<< HEAD
 >>>>>>> 065eb732f9 (apply demorgan rule for more readble conds)
+<<<<<<< HEAD
 >>>>>>> c97c58da0a (apply demorgan rule for more readble conds)
+=======
+=======
+=======
+        // flips nested negated conditions to same-meaning clear ones
+        Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
+
+=======
+        Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
+>>>>>>> 0c164f8ce9 ([types] make use of instanceof on empty object checks)
+>>>>>>> cb1dc198b9 ([types] make use of instanceof on empty object checks)
+>>>>>>> b5dae9bad1 ([types] make use of instanceof on empty object checks)
+>>>>>>> 04b942c776 ([types] make use of instanceof on empty object checks)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
