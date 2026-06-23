@@ -52,9 +52,18 @@ return RectorConfig::configure()
         UnserializeToSerializerDecodeRector::class,
     ])
     ->reportUnusedSkips()
+<<<<<<< HEAD
     ->withTypeCoverageLevel(23)
+<<<<<<< HEAD
     ->withCodingStyleLevel(3)
     ->withCodeQualityLevel(17)
+=======
+    ->withCodeQualityLevel(2)
+=======
+    ->withTypeCoverageLevel(15)
+    ->withCodeQualityLevel(19)
+>>>>>>> 604943b2af ([types] make use of direct return over bool if/else)
+>>>>>>> 22c0e941ab ([types] make use of direct return over bool if/else)
     ->withSkip([
         // too many changes
         Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector::class,
