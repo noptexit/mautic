@@ -9,19 +9,9 @@ use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Cast\RecastingRemovalRector;
 use Rector\DeadCode\Rector\If_\RemoveAlwaysTrueIfConditionRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
-<<<<<<< HEAD
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
-<<<<<<< HEAD
 use Rector\TypeDeclaration\Rector\ClassMethod\KnownMagicClassMethodTypeRector;
-=======
-=======
-<<<<<<< HEAD
-=======
-use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
->>>>>>> ef7ee2b39a (Type coverage: register ParamTypeByParentCallTypeRector)
->>>>>>> eae9b7f93d (Type coverage: register ParamTypeByParentCallTypeRector)
->>>>>>> c375e8dbcf (Type coverage: register ParamTypeByParentCallTypeRector)
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
@@ -49,15 +39,17 @@ return RectorConfig::configure()
     ->withCache(__DIR__.'/var/cache/rector')
     ->withRules([
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> ca5200203c (fix phpstan)
         Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
 >>>>>>> aa468ca272 (Type coverage: register ParamTypeByParentCallTypeRector)
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
-<<<<<<< HEAD
         AddParamTypeFromPropertyTypeRector::class,
-<<<<<<< HEAD
         KnownMagicClassMethodTypeRector::class,
+<<<<<<< HEAD
 <<<<<<< HEAD
         // flips nested negated conditions to same-meaning clear ones
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
@@ -69,8 +61,20 @@ return RectorConfig::configure()
         ParamTypeByParentCallTypeRector::class,
 >>>>>>> 72f0bc69f0 (Type coverage: register ParamTypeByParentCallTypeRector)
 >>>>>>> eae9b7f93d (Type coverage: register ParamTypeByParentCallTypeRector)
+<<<<<<< HEAD
 >>>>>>> c375e8dbcf (Type coverage: register ParamTypeByParentCallTypeRector)
+<<<<<<< HEAD
 >>>>>>> aa468ca272 (Type coverage: register ParamTypeByParentCallTypeRector)
+=======
+=======
+=======
+        ParamTypeByParentCallTypeRector::class,
+>>>>>>> 0a5a5dbc58 (fix phpstan)
+>>>>>>> de77409813 (fix phpstan)
+>>>>>>> ca5200203c (fix phpstan)
+=======
+        ParamTypeByParentCallTypeRector::class,
+>>>>>>> 2c83503805 (rebase)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
