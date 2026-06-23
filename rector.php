@@ -20,6 +20,12 @@ use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
 
+$extendableControllers = [
+    __DIR__.'/app/bundles/CoreBundle/Controller/AbstractStandardFormController.php',
+    __DIR__.'/app/bundles/CoreBundle/Controller/CommonController.php',
+    __DIR__.'/app/bundles/CoreBundle/Controller/FormController.php',
+];
+
 return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/app/bundles',
@@ -65,8 +71,10 @@ return RectorConfig::configure()
 
         // designed to be overriden by 3rd party, adding return type will break BC
         Rector\TypeDeclaration\Rector\ClassMethod\StringReturnTypeFromStrictScalarReturnsRector::class => [
-            __DIR__.'/app/bundles/CoreBundle/Controller/CommonController.php',
-            __DIR__.'/app/bundles/CoreBundle/Controller/AbstractStandardFormController.php',
+            ...$extendableControllers,
+        ],
+        ReturnTypeFromStrictTypedCallRector::class => [
+            ...$extendableControllers,
         ],
         StringReturnTypeFromStrictStringReturnsRector::class => [
             __DIR__.'/app/bundles/CoreBundle/Entity/FormEntity.php',
@@ -80,6 +88,8 @@ return RectorConfig::configure()
         ],
         Rector\TypeDeclaration\Rector\ClassMethod\ReturnNullableTypeRector::class => [
             __DIR__.'/app/bundles/IntegrationsBundle/Sync/DAO/DateRange.php',
+            // can be overriden, BC
+            ...$extendableControllers,
         ],
 
         TypedPropertyFromAssignsRector::class => [
