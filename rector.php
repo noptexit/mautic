@@ -16,9 +16,11 @@ use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRec
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictParamRector;
+// use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedPropertyRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\StringReturnTypeFromStrictStringReturnsRector;
+use Rector\TypeDeclaration\Rector\Closure\ClosureReturnTypeRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
@@ -42,9 +44,13 @@ return RectorConfig::configure()
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
         AddParamTypeFromPropertyTypeRector::class,
         KnownMagicClassMethodTypeRector::class,
+<<<<<<< HEAD
         // flips nested negated conditions to same-meaning clear ones
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
         ParamTypeByParentCallTypeRector::class,
+=======
+        ClosureReturnTypeRector::class,
+>>>>>>> 9ee9d0559e (Type coverage: register ClosureReturnTypeRector)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
