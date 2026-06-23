@@ -37,10 +37,22 @@ return RectorConfig::configure()
     ->withPhpSets(php80: true)
     ->withCache(__DIR__.'/var/cache/rector')
     ->withRules([
+<<<<<<< HEAD
         Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
+<<<<<<< HEAD
         AddParamTypeFromPropertyTypeRector::class,
+<<<<<<< HEAD
         KnownMagicClassMethodTypeRector::class,
+=======
+=======
+=======
+        // flips nested negated conditions to same-meaning clear ones
+        Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
+
+>>>>>>> 87a0d28c49 (apply demorgan rule for more readble conds)
+>>>>>>> 065eb732f9 (apply demorgan rule for more readble conds)
+>>>>>>> c97c58da0a (apply demorgan rule for more readble conds)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
