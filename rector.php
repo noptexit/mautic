@@ -44,8 +44,14 @@ return RectorConfig::configure()
         UnserializeToSerializerDecodeRector::class,
     ])
     ->reportUnusedSkips()
+<<<<<<< HEAD
     ->withTypeCoverageLevel(15)
+=======
+    ->withTypeCoverageLevel(6)
+    ->withCodeQualityLevel(2)
+>>>>>>> 1ec1d82bc3 ([php] make use of *= operations)
     ->withSkip([
+        \Rector\Renaming\Rector\FuncCall\RenameFunctionRector::class,
         '*/Test/*',
         '*/Tests/*',
 
