@@ -16,6 +16,7 @@ use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNativeCallRect
 // use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictParamRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictTypedCallRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\StringReturnTypeFromStrictStringReturnsRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictConstructorRector;
 use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
@@ -61,6 +62,15 @@ return RectorConfig::configure()
 
         // lets handle later, once we have more type declaratoins
         RecastingRemovalRector::class,
+
+        // designed to be overriden by 3rd party, adding return type will break BC
+        Rector\TypeDeclaration\Rector\ClassMethod\StringReturnTypeFromStrictScalarReturnsRector::class => [
+            __DIR__.'/app/bundles/CoreBundle/Controller/CommonController.php',
+            __DIR__.'/app/bundles/CoreBundle/Controller/AbstractStandardFormController.php',
+        ],
+        StringReturnTypeFromStrictStringReturnsRector::class => [
+            __DIR__.'/app/bundles/CoreBundle/Entity/FormEntity.php',
+        ],
 
         TypedPropertyFromAssignsRector::class => [
             '*/Entity/*',
