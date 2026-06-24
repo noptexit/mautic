@@ -48,14 +48,9 @@ return RectorConfig::configure()
         UnserializeToSerializerDecodeRector::class,
     ])
     ->reportUnusedSkips()
-<<<<<<< HEAD
     ->withTypeCoverageLevel(23)
-    ->withCodeQualityLevel(2)
-=======
     ->withCodingStyleLevel(3)
-    ->withTypeCoverageLevel(15)
     ->withCodeQualityLevel(17)
->>>>>>> 58b76cac1b ([cs] add empty line between class elements)
     ->withSkip([
         // too many changes
         Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector::class,
