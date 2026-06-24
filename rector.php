@@ -59,11 +59,6 @@ return RectorConfig::configure()
         '*/Test/*',
         '*/Tests/*',
 
-        ReturnTypeFromReturnDirectArrayRector::class => [
-            // require bit test update
-            __DIR__.'/app/bundles/LeadBundle/Model/LeadModel.php',
-        ],
-
         // Avoiding breaking BC breaks with forced return types in public methods
         ReturnTypeFromReturnNewRector::class => [
             __DIR__.'/app/bundles/IntegrationsBundle/Sync/SyncProcess/Direction/Integration/ObjectChangeGenerator.php',
