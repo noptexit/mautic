@@ -10,11 +10,6 @@ use Rector\DeadCode\Rector\Cast\RecastingRemovalRector;
 use Rector\DeadCode\Rector\If_\RemoveAlwaysTrueIfConditionRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
-<<<<<<< HEAD
-use Rector\TypeDeclaration\Rector\ClassMethod\KnownMagicClassMethodTypeRector;
-use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
-=======
->>>>>>> adebca9114 (fixup! fixup! fixup! raise type level to 30)
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictParamRector;
@@ -43,6 +38,7 @@ return RectorConfig::configure()
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
         AddParamTypeFromPropertyTypeRector::class,
 <<<<<<< HEAD
+<<<<<<< HEAD
         KnownMagicClassMethodTypeRector::class,
 <<<<<<< HEAD
 
@@ -59,6 +55,12 @@ return RectorConfig::configure()
 >>>>>>> 66b0c7e5fe (fixup! fixup! raise type level to 30)
 =======
 >>>>>>> adebca9114 (fixup! fixup! fixup! raise type level to 30)
+=======
+
+        // flips nested negated conditions to same-meaning clear ones
+        Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
+
+>>>>>>> 789291c0ee ([types] add param type by parent class method compatibility)
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictParamRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
