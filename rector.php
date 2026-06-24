@@ -43,7 +43,6 @@ return RectorConfig::configure()
         // flips nested negated conditions to same-meaning clear ones
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
         Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
-        Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
