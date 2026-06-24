@@ -38,43 +38,13 @@ return RectorConfig::configure()
     ->withPhpSets(php80: true)
     ->withCache(__DIR__.'/var/cache/rector')
     ->withRules([
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> ca5200203c (fix phpstan)
         Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
->>>>>>> aa468ca272 (Type coverage: register ParamTypeByParentCallTypeRector)
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
         AddParamTypeFromPropertyTypeRector::class,
         KnownMagicClassMethodTypeRector::class,
-<<<<<<< HEAD
-<<<<<<< HEAD
         // flips nested negated conditions to same-meaning clear ones
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
-        Rector\TypeDeclaration\Rector\Empty_\EmptyOnNullableObjectToInstanceOfRector::class,
-=======
-=======
-=======
-=======
         ParamTypeByParentCallTypeRector::class,
->>>>>>> 72f0bc69f0 (Type coverage: register ParamTypeByParentCallTypeRector)
->>>>>>> eae9b7f93d (Type coverage: register ParamTypeByParentCallTypeRector)
-<<<<<<< HEAD
->>>>>>> c375e8dbcf (Type coverage: register ParamTypeByParentCallTypeRector)
-<<<<<<< HEAD
->>>>>>> aa468ca272 (Type coverage: register ParamTypeByParentCallTypeRector)
-=======
-=======
-=======
-        ParamTypeByParentCallTypeRector::class,
->>>>>>> 0a5a5dbc58 (fix phpstan)
->>>>>>> de77409813 (fix phpstan)
->>>>>>> ca5200203c (fix phpstan)
-=======
-        ParamTypeByParentCallTypeRector::class,
->>>>>>> 2c83503805 (rebase)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
