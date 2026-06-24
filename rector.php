@@ -44,13 +44,12 @@ return RectorConfig::configure()
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
         AddParamTypeFromPropertyTypeRector::class,
         KnownMagicClassMethodTypeRector::class,
-<<<<<<< HEAD
+
         // flips nested negated conditions to same-meaning clear ones
         Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
         ParamTypeByParentCallTypeRector::class,
-=======
+
         ClosureReturnTypeRector::class,
->>>>>>> 9ee9d0559e (Type coverage: register ClosureReturnTypeRector)
         ReturnTypeFromStrictTypedCallRector::class,
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictNativeCallRector::class,
