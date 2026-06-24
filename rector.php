@@ -9,7 +9,12 @@ use Rector\Config\RectorConfig;
 use Rector\DeadCode\Rector\Cast\RecastingRemovalRector;
 use Rector\Php80\Rector\Class_\ClassPropertyAssignToConstructorPromotionRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\AddParamTypeFromPropertyTypeRector;
+<<<<<<< HEAD
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnDirectArrayRector;
+=======
+use Rector\TypeDeclaration\Rector\ClassMethod\KnownMagicClassMethodTypeRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\ParamTypeByParentCallTypeRector;
+>>>>>>> 4408149171 (fill return date time interface)
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromReturnNewRector;
 use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictParamRector;
 // use Rector\TypeDeclaration\Rector\ClassMethod\ReturnTypeFromStrictNewArrayRector;
@@ -82,7 +87,6 @@ return RectorConfig::configure()
             __DIR__.'/app/bundles/CoreBundle/Controller/FormController.php',
             // handle mocks later
             __DIR__.'/app/bundles/IntegrationsBundle/Sync/DAO/DateRange.php',
-            __DIR__.'/app/bundles/CampaignBundle/Executioner/Scheduler/Mode/DAO/GroupExecutionDateDAO.php',
             __DIR__.'/app/bundles/CampaignBundle/Executioner/EventExecutioner.php',
         ],
         Rector\TypeDeclaration\Rector\ClassMethod\ReturnNullableTypeRector::class => [
