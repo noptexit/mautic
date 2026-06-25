@@ -52,6 +52,7 @@ class Form extends FormEntity implements UuidInterface
     use ProjectTrait;
 
     public const ENTITY_NAME = 'forms';
+
     public const TABLE_NAME  = 'forms';
 
     /**
@@ -647,7 +648,7 @@ class Form extends FormEntity implements UuidInterface
                 ],
                 $this->getFields()->getValues(),
             ),
-            fn ($elem): bool => isset($elem['mappedObject']) && isset($elem['mappedField']),
+            fn (array $elem): bool => isset($elem['mappedObject']) && isset($elem['mappedField']),
         );
     }
 
