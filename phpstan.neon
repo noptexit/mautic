@@ -91,6 +91,12 @@ parameters:
 		-
 			message: '#Call to an undefined method Mautic\\IntegrationsBundle\\Auth\\Provider\\AuthCredentialsInterface::#'
 			path: app/bundles/IntegrationsBundle/Auth/Provider/Oauth2ThreeLegged/HttpFactory.php
+
+        # deprecation
+		-
+			identifier: return.deprecatedClass
+			path: app/plugins/MauticSocialBundle/EventListener/CampaignSubscriber.php
+
 	scanFiles:
 		# This is here because a few functions in the global namespace are defined in this file
 		- vendor/twig/twig/src/Extension/EscaperExtension.php
