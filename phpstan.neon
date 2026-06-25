@@ -95,7 +95,7 @@ parameters:
         # deprecation
 		-
 			identifier: return.deprecatedClass
-			path: app/plugins/MauticSocialBundle/EventListener/CampaignSubscriber.php
+			message: '#Return type of method Mautic\\(.*?)\\EventListener\\CampaignSubscriber::(.*?) has typehint with deprecated class Mautic\\CampaignBundle\\Event\\CampaignExecutionEvent#'
 
 	scanFiles:
 		# This is here because a few functions in the global namespace are defined in this file
