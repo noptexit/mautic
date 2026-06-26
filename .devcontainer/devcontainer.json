@@ -22,7 +22,13 @@
             "label": "Mautic (HTTPS)"
         }
     },
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                ".devcontainer/CODESPACES.md"
+            ]
+        }
+    },
     "postCreateCommand": ".devcontainer/setup-project.sh",
-    "postAttachCommand": ".devcontainer/post-attach.sh",
     "updateContentCommand": ".devcontainer/prebuild-project.sh"
 }
