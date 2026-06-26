@@ -170,7 +170,7 @@ class TweetStat
      *
      * @return $this
      */
-    public function setTwitterTweetId($twitterTweetId)
+    public function setTwitterTweetId($twitterTweetId): static
     {
         $this->twitterTweetId = $twitterTweetId;
 
@@ -221,10 +221,7 @@ class TweetStat
         return $this->retryCount;
     }
 
-    /**
-     * @param ?int $retryCount
-     */
-    public function setRetryCount($retryCount): void
+    public function setRetryCount(?int $retryCount): void
     {
         $this->retryCount = $retryCount;
     }
@@ -240,11 +237,9 @@ class TweetStat
     }
 
     /**
-     * @param ?int $favoriteCount
-     *
      * @return $this
      */
-    public function setFavoriteCount($favoriteCount)
+    public function setFavoriteCount(?int $favoriteCount): static
     {
         $this->favoriteCount = $favoriteCount;
 
@@ -257,11 +252,9 @@ class TweetStat
     }
 
     /**
-     * @param ?int $retweetCount
-     *
      * @return $this
      */
-    public function setRetweetCount($retweetCount)
+    public function setRetweetCount(?int $retweetCount): static
     {
         $this->retweetCount = $retweetCount;
 
@@ -273,10 +266,7 @@ class TweetStat
         return $this->isFailed;
     }
 
-    /**
-     * @param ?bool $isFailed
-     */
-    public function setIsFailed($isFailed): void
+    public function setIsFailed(?bool $isFailed): void
     {
         $this->isFailed = $isFailed;
     }
@@ -344,10 +334,8 @@ class TweetStat
 
     /**
      * @param ?mixed[] $responseDetails
-     *
-     * @return self
      */
-    public function setResponseDetails($responseDetails)
+    public function setResponseDetails(?array $responseDetails): static
     {
         $this->responseDetails = $responseDetails;
 

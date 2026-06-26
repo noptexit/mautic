@@ -35,7 +35,7 @@ class EmailStatOptions extends FetchOptions
     /**
      * @return $this
      */
-    public function setEmailIds(array $ids)
+    public function setEmailIds(array $ids): static
     {
         $this->ids = $ids;
 
@@ -118,10 +118,7 @@ class EmailStatOptions extends FetchOptions
         return $this->canViewOthers;
     }
 
-    /**
-     * @param bool $canViewOthers
-     */
-    public function setCanViewOthers($canViewOthers): self
+    public function setCanViewOthers(bool $canViewOthers): self
     {
         $this->canViewOthers = $canViewOthers;
 
@@ -141,7 +138,7 @@ class EmailStatOptions extends FetchOptions
      *
      * @return $this
      */
-    public function setUnit($unit)
+    public function setUnit($unit): static
     {
         $this->unit = $unit;
 
