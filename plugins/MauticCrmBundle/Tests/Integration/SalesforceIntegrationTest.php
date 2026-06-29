@@ -88,7 +88,7 @@ class SalesforceIntegrationTest extends AbstractIntegrationTestCase
     /**
      * Reset.
      */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         $this->returnedSfEntities           = [];
         $this->persistedIntegrationEntities = [];
@@ -677,10 +677,10 @@ class SalesforceIntegrationTest extends AbstractIntegrationTestCase
         $sf->amendLeadDataBeforePush($input);
 
         self::assertSame($input, $output);
-        self::assertEquals('string', gettype($output[0]));
-        self::assertEquals('boolean', gettype($output[1]));
-        self::assertEquals('string', gettype($output[2]));
-        self::assertEquals('integer', gettype($output[3]));
+        self::assertSame('string', gettype($output[0]));
+        self::assertSame('boolean', gettype($output[1]));
+        self::assertSame('string', gettype($output[2]));
+        self::assertSame('integer', gettype($output[3]));
     }
 
     protected function setMaxInvocations(string $name, int $max): self

@@ -989,10 +989,8 @@ class LeadModel extends FormModel
      * @param array|Lead  $lead
      * @param array|Stage $stage
      * @param bool        $manuallyAdded
-     *
-     * @return $this
      */
-    public function addToStages($lead, $stage, $manuallyAdded = true)
+    public function addToStages($lead, $stage, $manuallyAdded = true): static
     {
         if (!$lead instanceof Lead) {
             $leadId = (is_array($lead) && isset($lead['id'])) ? $lead['id'] : $lead;
@@ -1012,10 +1010,8 @@ class LeadModel extends FormModel
      * Remove lead from Stage.
      *
      * @param bool $manuallyRemoved
-     *
-     * @return $this
      */
-    public function removeFromStages($lead, $stage, $manuallyRemoved = true)
+    public function removeFromStages($lead, $stage, $manuallyRemoved = true): static
     {
         $lead->setStage(null);
         $lead->stageChangeLogEntry(
