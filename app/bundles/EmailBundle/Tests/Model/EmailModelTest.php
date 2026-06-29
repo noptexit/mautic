@@ -15,6 +15,7 @@ use Mautic\CoreBundle\Helper\CoreParametersHelper;
 use Mautic\CoreBundle\Helper\IpLookupHelper;
 use Mautic\CoreBundle\Helper\ThemeHelperInterface;
 use Mautic\CoreBundle\Helper\UserHelper;
+use Mautic\CoreBundle\Model\AbTest\AbTestSettingsService;
 use Mautic\CoreBundle\Security\Permissions\CorePermissions;
 use Mautic\CoreBundle\Test\Doctrine\DBALMocker;
 use Mautic\CoreBundle\Translation\Translator;
@@ -213,42 +214,45 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
      */
     private MockObject $botRatioHelperMock;
 
+    private MockObject&AbTestSettingsService $abTestSettingsServiceMock;
+
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->ipLookupHelper           = $this->createMock(IpLookupHelper::class);
-        $this->themeHelper              = $this->createMock(ThemeHelperInterface::class);
-        $this->mailboxHelper            = $this->createMock(Mailbox::class);
-        $this->mailHelper               = $this->createMock(MailHelper::class);
-        $this->leadModel                = $this->createMock(LeadModel::class);
-        $this->trackableModel           = $this->createMock(TrackableModel::class);
-        $this->userModel                = $this->createMock(UserModel::class);
-        $this->userHelper               = $this->createMock(UserHelper::class);
-        $this->translator               = $this->createMock(Translator::class);
-        $this->emailEntity              = $this->createMock(Email::class);
-        $this->entityManager            = $this->createMock(EntityManager::class);
-        $this->statRepository           = $this->createMock(StatRepository::class);
-        $this->emailRepository          = $this->createMock(EmailRepository::class);
-        $this->frequencyRepository      = $this->createMock(FrequencyRuleRepository::class);
-        $this->messageModel             = $this->createMock(MessageQueueModel::class);
-        $this->companyModel             = $this->createMock(CompanyModel::class);
-        $this->companyRepository        = $this->createMock(CompanyRepository::class);
-        $this->dncModel                 = $this->createMock(DoNotContact::class);
-        $this->emailStatModel           = $this->createMock(EmailStatModel::class);
-        $this->statHelper               = new StatHelper($this->emailStatModel);
-        $this->sendToContactModel       = new SendEmailToContact($this->mailHelper, $this->statHelper, $this->dncModel, $this->translator);
-        $this->deviceTrackerMock        = $this->createMock(DeviceTracker::class);
-        $this->redirectRepositoryMock   = $this->createMock(RedirectRepository::class);
+        $this->ipLookupHelper            = $this->createMock(IpLookupHelper::class);
+        $this->themeHelper               = $this->createMock(ThemeHelperInterface::class);
+        $this->mailboxHelper             = $this->createMock(Mailbox::class);
+        $this->mailHelper                = $this->createMock(MailHelper::class);
+        $this->leadModel                 = $this->createMock(LeadModel::class);
+        $this->trackableModel            = $this->createMock(TrackableModel::class);
+        $this->userModel                 = $this->createMock(UserModel::class);
+        $this->userHelper                = $this->createMock(UserHelper::class);
+        $this->translator                = $this->createMock(Translator::class);
+        $this->emailEntity               = $this->createMock(Email::class);
+        $this->entityManager             = $this->createMock(EntityManager::class);
+        $this->statRepository            = $this->createMock(StatRepository::class);
+        $this->emailRepository           = $this->createMock(EmailRepository::class);
+        $this->frequencyRepository       = $this->createMock(FrequencyRuleRepository::class);
+        $this->messageModel              = $this->createMock(MessageQueueModel::class);
+        $this->companyModel              = $this->createMock(CompanyModel::class);
+        $this->companyRepository         = $this->createMock(CompanyRepository::class);
+        $this->dncModel                  = $this->createMock(DoNotContact::class);
+        $this->emailStatModel            = $this->createMock(EmailStatModel::class);
+        $this->statHelper                = new StatHelper($this->emailStatModel);
+        $this->sendToContactModel        = new SendEmailToContact($this->mailHelper, $this->statHelper, $this->dncModel, $this->translator);
+        $this->deviceTrackerMock         = $this->createMock(DeviceTracker::class);
+        $this->redirectRepositoryMock    = $this->createMock(RedirectRepository::class);
         // @phpstan-ignore classConstant.deprecatedClass
-        $this->cacheStorageHelperMock   = $this->createMock(CacheStorageHelper::class);
-        $this->contactTracker           = $this->createMock(ContactTracker::class);
-        $this->doNotContact             = $this->createMock(DoNotContact::class);
-        $this->statsCollectionHelper    = $this->createMock(StatsCollectionHelper::class);
-        $this->corePermissions          = $this->createMock(CorePermissions::class);
-        $this->eventDispatcher          = $this->createMock(EventDispatcherInterface::class);
-        $this->leadDeviceRepository     = $this->createMock(LeadDeviceRepository::class);
-        $this->botRatioHelperMock       = $this->createMock(BotRatioHelper::class);
+        $this->cacheStorageHelperMock    = $this->createMock(CacheStorageHelper::class);
+        $this->contactTracker            = $this->createMock(ContactTracker::class);
+        $this->doNotContact              = $this->createMock(DoNotContact::class);
+        $this->statsCollectionHelper     = $this->createMock(StatsCollectionHelper::class);
+        $this->corePermissions           = $this->createMock(CorePermissions::class);
+        $this->eventDispatcher           = $this->createMock(EventDispatcherInterface::class);
+        $this->leadDeviceRepository      = $this->createMock(LeadDeviceRepository::class);
+        $this->botRatioHelperMock        = $this->createMock(BotRatioHelper::class);
+        $this->abTestSettingsServiceMock = $this->createMock(AbTestSettingsService::class);
 
         $this->ipLookupHelper->method('isRequestTrackable')->willReturn(true);
 
@@ -278,7 +282,9 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
             $this->createMock(LoggerInterface::class),
             $this->createMock(CoreParametersHelper::class),
             $this->emailStatModel,
-            $this->botRatioHelperMock
+            $this->botRatioHelperMock,
+            $this->abTestSettingsServiceMock,
+            $this->createMock(\Mautic\EmailBundle\Model\AbTest\EmailVariantConverterService::class),
         );
 
         $this->emailStatModel->method('getRepository')->willReturn($this->statRepository);
@@ -297,6 +303,16 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
         $this->translator->expects($this->any())
             ->method('hasId')
             ->willReturn(false);
+
+        // Configure AbTestSettingsService mock: parent(1)=50%, variantA(2)=25%, variantB(3)=25%
+        $this->abTestSettingsServiceMock->method('getAbTestSettings')
+            ->willReturn([
+                'variants'           => [1 => ['weight' => 50], 2 => ['weight' => 25], 3 => ['weight' => 25]],
+                'winnerCriteria'     => null,
+                'totalWeight'        => 100,
+                'sendWinnerDelay'    => 0,
+                'configurationError' => false,
+            ]);
 
         // Setup an email variant email
         $variantDate = new \DateTime();
@@ -438,6 +454,16 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
         $this->translator->expects($this->any())
             ->method('hasId')
             ->willReturn(false);
+
+        // Configure AbTestSettingsService mock: parent(1)=50%, variantA(2)=25%, variantB(3)=25%
+        $this->abTestSettingsServiceMock->method('getAbTestSettings')
+            ->willReturn([
+                'variants'           => [1 => ['weight' => 50], 2 => ['weight' => 25], 3 => ['weight' => 25]],
+                'winnerCriteria'     => null,
+                'totalWeight'        => 100,
+                'sendWinnerDelay'    => 0,
+                'configurationError' => false,
+            ]);
 
         // Setup an email variant email
         $variantDate = new \DateTime();
@@ -621,7 +647,9 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
             $this->createMock(LoggerInterface::class),
             $this->createMock(CoreParametersHelper::class),
             $this->emailStatModel,
-            $this->botRatioHelperMock
+            $this->botRatioHelperMock,
+            $this->abTestSettingsServiceMock,
+            $this->createMock(\Mautic\EmailBundle\Model\AbTest\EmailVariantConverterService::class),
         );
 
         $contacts = [
@@ -769,7 +797,9 @@ class EmailModelTest extends \PHPUnit\Framework\TestCase
             $this->createMock(LoggerInterface::class),
             $this->createMock(CoreParametersHelper::class),
             $this->emailStatModel,
-            $this->botRatioHelperMock
+            $this->botRatioHelperMock,
+            $this->abTestSettingsServiceMock,
+            $this->createMock(\Mautic\EmailBundle\Model\AbTest\EmailVariantConverterService::class),
         );
 
         $this->emailEntity->method('getId')
