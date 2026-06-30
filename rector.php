@@ -37,9 +37,6 @@ return RectorConfig::configure()
         AddParamTypeFromPropertyTypeRector::class,
         ClosureReturnTypeRector::class,
 
-        // flips nested negated conditions to same-meaning clear ones
-        Rector\CodeQuality\Rector\BooleanNot\SimplifyDeMorganBinaryRector::class,
-
         TypedPropertyFromAssignsRector::class,
         ReturnTypeFromStrictParamRector::class,
         ClassPropertyAssignToConstructorPromotionRector::class,
@@ -49,10 +46,13 @@ return RectorConfig::configure()
     ->reportUnusedSkips()
     ->withTypeCoverageLevel(36)
     ->withCodingStyleLevel(3)
-    ->withCodeQualityLevel(19)
+    ->withCodeQualityLevel(27)
     ->withSkip([
         // too many changes
         Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector::class,
+        Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector::class,
+        // soon to be deprecated
+        Rector\CodeQuality\Rector\Concat\JoinStringConcatRector::class,
 
         Rector\Renaming\Rector\FuncCall\RenameFunctionRector::class,
         '*/Test/*',
