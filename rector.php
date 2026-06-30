@@ -29,7 +29,7 @@ return RectorConfig::configure()
         __DIR__.'/plugins',
     ])
     ->withPreparedSets(deadCode: true)
-    ->withPhpSets(php80: true)
+    ->withPhpSets(php81: true)
     ->withCache(__DIR__.'/var/cache/rector')
     ->withRules([
         Rector\Instanceof_\Rector\Ternary\FlipNegatedTernaryInstanceofRector::class,
@@ -47,6 +47,13 @@ return RectorConfig::configure()
     ->withCodingStyleLevel(3)
     ->withCodeQualityLevel(27)
     ->withSkip([
+        \Rector\Php81\Rector\FuncCall\NullToStrictStringFuncCallArgRector::class,
+        // modified with reflection
+        \Rector\Php81\Rector\Property\ReadOnlyPropertyRector::class => [
+            __DIR__ . '/app/bundles/EmailBundle/Entity/EmailDraft.php',
+            __DIR__ . '/app/bundles/EmailBundle/Helper/MailHelper.php',
+        ],
+
         // too many changes
         Rector\CodingStyle\Rector\Stmt\NewlineAfterStatementRector::class,
         Rector\CodeQuality\Rector\If_\SimplifyIfElseToTernaryRector::class,
